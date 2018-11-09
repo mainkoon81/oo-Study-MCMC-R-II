@@ -25,7 +25,7 @@ Sample the two parameters one at a time? `P(θ,ϕ|y) ∝ g(θ,ϕ)`
      <img src="https://user-images.githubusercontent.com/31917400/48291210-8ba1b900-e46d-11e8-8122-cf2fc3e0be8c.jpg" />
    
    - **SECOND**, If we continue on to find the two **full-conditional** distributions,...
-     <img src="https://user-images.githubusercontent.com/31917400/48291743-67df7280-e46f-11e8-9c0b-5d4d8dc303f6.jpg" />
+     <img src="https://user-images.githubusercontent.com/31917400/48292668-2781f380-e473-11e8-8d45-5101fd972d27.jpg" />
 
 
 
