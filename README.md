@@ -27,8 +27,8 @@ Sample the two parameters one at a time? `P(θ,ϕ|y) ∝ g(θ,ϕ)`
    - **SECOND**, If we continue on to find the two **full-conditional** distributions,...
      <img src="https://user-images.githubusercontent.com/31917400/48292668-2781f380-e473-11e8-8d45-5101fd972d27.jpg" />
      - These two distributions provide the `basis of a Gibbs sampler` to simulate from a Markov chain whose stationary distribution is the full posterior of both μ and σ^2. We simply alternate draws between these two parameters, using the most recent draw of one parameter to update the other.
-     
-
+     - so in Gibbs sampler, we can complete an update for `μ` by simply drawing from the **Normal full-conditional** for `μ` since the `full conditional distribution` is a Normal distribution, this update is easy to simulate, and we can do it without drawing a candidate and deciding whether to accept it.
+       - Of course, we can draw a candidate `μ∗` from a proposal distribution `q( )` and use the normal **full-conditional** for `μ` (which is `g(μ)`) or use the `full joint posterior` for `μ` and `σ^2` (which is `g(μ,σ^2)`) to evaluate the acceptance ratio, but it is not efficient.  
 
 
 
