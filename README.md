@@ -30,6 +30,34 @@ Sample the two parameters one at a time? `P(θ,ϕ|y) ∝ g(θ,ϕ)`
      - so in Gibbs sampler, we can complete an update for `μ` by simply drawing from the **Normal full-conditional** for `μ` since the `full conditional distribution` is a Normal distribution, this update is easy to simulate, and we can do it without drawing a candidate and deciding whether to accept it.
        - Of course, we can draw a candidate `μ∗` from a proposal distribution `q( )` and use the normal **full-conditional** for `μ` (which is `g(μ)`) or use the `full joint posterior` for `μ` and `σ^2` (which is `g(μ,σ^2)`) to evaluate the acceptance ratio, but it is not efficient.  
 
+### Example:
+ - To implement the Gibbs sampler, we return to our running example where the data are the percent change in total personnel from last year to this year for `n=10` companies. We’ll still use a **Normal likelihood**, but now we’ll relax the assumption that we know the variance of growth between companies `σ^2`, and estimate that variance. Instead of the **t-prior** from earlier, we will use the two **conditionally conjugate priors**: Normal for `μ` and inverse-gamma for `σ2`.
+ - Simulate from the **full-conditional** we derived in the previous segment:
+   <img src="https://user-images.githubusercontent.com/31917400/48294095-41730480-e47a-11e8-81e0-887ae85a983b.jpg" />
+   
+   ```
+   update_mu = function(n, ybar, sig2, mu_0, sig2_0) {
+     sig2_1 = 1.0 / (n / sig2 + 1.0 / sig2_0)
+     mu_1 = sig2_1 * (n * ybar / sig2 + mu_0 / sig2_0)
+     rnorm(n=1, mean=mu_1, sd=sqrt(sig2_1))
+     }
+   ```
+   <img src="https://user-images.githubusercontent.com/31917400/48294103-446df500-e47a-11e8-8069-f5864e53fb44.jpg" />
+   
+   ```
+   update_sig2 = function(n, y, mu, nu_0, beta_0) {
+     nu_1 = nu_0 + n / 2.0
+     sumsq = sum( (y - mu)^2 )                        # vectorized
+     beta_1 = beta_0 + sumsq / 2.0
+     out_gamma = rgamma(n=1, shape=nu_1, rate=beta_1) # rate for gamma is shape for inv-gamma
+     1.0 / out_gamma                                  # reciprocal of a gamma random variable is distributed inv-gamma
+     }
+   ```
+   
+
+
+
+
 
 
 
@@ -37,29 +65,6 @@ Sample the two parameters one at a time? `P(θ,ϕ|y) ∝ g(θ,ϕ)`
 
 
 ## 4. Assessing Convergence
-
-
-
-
-
----------------------------------------------------------------------------------------------------------------
-# [Modelling Collection)]
-## 1. LinearModel
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
