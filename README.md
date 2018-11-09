@@ -10,8 +10,8 @@ Sample the two parameters one at a time? `P(θ,ϕ|y) ∝ g(θ,ϕ)`
  - When `g(θ,ϕ)` is viewed as a function of **θ**, it is proportional to both: 
    - full posterior **joint**: `P(θ,ϕ|y)`
    - full **conditional** for θ: `P(θ|ϕ,y)`(meaning that `θ given everyting else`)
- - therefore, we can replace `g(θ,ϕ)` with the full **conditional** `P(θ|ϕ,y)` when we performe the update for **θ**. 
- - Why do we use this instead of `g(θ,ϕ)`? In some cases, the full conditional distribution is a **standard distribution** that we know how to sample!!! If that happens, we no longer need to draw a candidate and decide whether to accept it. In fact, if we treat the full conditional distribution as a candidate proposal distribution `q( )`, the resulting Metropolis-Hastings acceptance probability **α** becomes exactly one. 
+ - *therefore, we can replace `g(θ,ϕ)` with the full **conditional** `P(θ|ϕ,y)` when we performe the update for **θ**. 
+ - *Why do we use this instead of `g(θ,ϕ)`? In some cases, the full **conditional** is a **standard distribution** that we know how to sample!!! If that happens, we no longer need to draw a candidate and decide whether to accept it or not. In fact, if we treat the full **conditional** a candidate proposal distribution `q( )`, the resulting Metropolis-Hastings acceptance probability **α** becomes exactly `1`. 
  - Gibbs Samplers require to find the **full conditional** for each parameter beforehand. The good news is, that all **full conditional** have the same starting point: the `full posterior joint distribution`! 
    - For θ: `g(θ,ϕ)` **∝** `P(θ|ϕ,y)` **∝** `P(θ,ϕ|y)`
    - For ϕ: `g(θ,ϕ)` **∝** `P(ϕ|θ,y)` **∝** `P(θ,ϕ|y)`
