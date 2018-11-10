@@ -53,7 +53,11 @@ Sample the two parameters one at a time? `P(θ,ϕ|y) ∝ g(θ,ϕ)`
      1.0 / out_gamma                                  # reciprocal of a gamma random variable is distributed inv-gamma
      }
    ```
- - With functions for drawing from the full conditionals, we are ready to write a function to perform Gibbs sampling.
+ - With functions for drawing from the full conditionals, we are ready to write a function to perform Gibbs sampling!!!!
+```
+
+```
+
  
 
 
