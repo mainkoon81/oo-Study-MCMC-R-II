@@ -67,7 +67,7 @@ gibbs = function(y, n_iter, init, prior) {
   
   ## Here Gibbs sampler is!!!!
   for (i in 1:n_iter) {
-  
+    # Since we started with the current draw from mu above, let's update variance first!!!
     sig2_now = update_sig2(n, y, mu_now, nu_0 = prior$nu_0, beta_0 = prior$beta_0)
     mu_now = update_mu(n, ybar, sig2_now, mu_0 = prior$mu_0, sig2_0 = prior$sig2_0)
     
