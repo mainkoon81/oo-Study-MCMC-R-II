@@ -88,9 +88,9 @@ prior = list()
 
 prior$mu_0 = 0.0
 prior$sig2_0 = 1.0
-prior$n_0 = 2.0 # prior effective sample size for sig2
-prior$s2_0 = 1.0 # prior point estimate for sig2
-prior$nu_0 = prior$n_0 / 2.0 # prior parameter for inverse-gamma
+prior$n_0 = 2.0                             # prior effective sample size for sig2
+prior$s2_0 = 1.0                            # prior point estimate for sig2
+prior$nu_0 = prior$n_0 / 2.0                # prior parameter for inverse-gamma
 prior$beta_0 = prior$n_0 * prior$s2_0 / 2.0 # prior parameter for inverse-gamma
 #-------------------------------------------------------------------------------
 hist(y, freq=FALSE, xlim=c(-1.0, 3.0))
