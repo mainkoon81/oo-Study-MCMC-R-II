@@ -78,8 +78,9 @@ gibbs = function(y, n_iter, init, prior) {
 }
 ```
  - Next, we execute this. Here is our data.
- - Gibbs sampling function accepts the prior as a `list`.
- - 
+ - Gibbs sampling function accepts our **prior** as a `list`.
+ - We set `sig2_0`(initial_var) to 1.0, so that this prior is similar to the t-prior.
+ - the particular parameterization of the `inverse gamma` is called the `scaled inverse chi-square`, where the two parameters are `n_0`(effective sample size for `sig2`) and `s2_0`(point estimate for `sig2`).???? Once we specify these two numbers, the parameters for our `inverse gamma` are automatically determined. 
 ```
 y = c(1.2, 1.4, -0.5, 0.3, 0.9, 2.3, 1.0, 0.1, 1.3, 1.9)
 ybar = mean(y)
