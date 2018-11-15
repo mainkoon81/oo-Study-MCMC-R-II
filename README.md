@@ -149,8 +149,8 @@ coda::autocorr.diag(as.mcmc(post1$mu))
 <img src="https://user-images.githubusercontent.com/31917400/48553062-66c89e00-e8d2-11e8-8edb-bf15aee892e9.jpg" />
 
  - Autocorrelation is important because it tells us **how much information is available** in our Markov chain. 
-   - Sampling 1000 iterations from a **highly correlated Markov chain** yields less information about the stationary distribution than we would obtain from 1000 samples independently drawn from the stationary distribution.
- - Autocorrelation is a major component in calculating the `Monte Carlo Effective Sample_Size` of your chain which saying **how many independent samples from the stationary distribution you would have to draw** to have equivalent information in your Markov chain. Essentially it is the `m`(sample size) we chose on Monte Carlo estimation.
+   - Of course, sampling 1000 iterations from a **highly correlated Markov chain** yields less information about the stationary distribution than we would obtain from 1000 samples independently drawn from the stationary distribution.
+ - Autocorrelation is a major component in calculating the `Monte Carlo Effective Sample_Size` of your chain which saying how many independent samples from the **stationary distribution** you would have to draw to have equivalent information in your **Markov chain**. Essentially it is the `m`(sample size) we chose on Monte Carlo estimation.
 ```
 str(post0) # contains 1,000 iterations
 str(post1) # contains 1,000 iterations
