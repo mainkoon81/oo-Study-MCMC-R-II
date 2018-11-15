@@ -148,16 +148,30 @@ coda::autocorr.diag(as.mcmc(post1$mu))
 ```
 <img src="https://user-images.githubusercontent.com/31917400/48550858-c1123080-e8cb-11e8-8f93-274e8c4c2d87.jpg" />
 
+ - Autocorrelation is important because it tells us **how much information is available** in our Markov chain. 
+   - Sampling 1000 iterations from a **highly correlated Markov chain** yields less information about the stationary distribution than we would obtain from 1000 samples independently drawn from the stationary distribution.
+ - Autocorrelation is a major component in calculating the `Monte Carlo Effective Sample_Size` of your chain which saying **how many independent samples from the stationary distribution you would have to draw** to have equivalent information in your Markov chain. Essentially it is the `m`(sample size) we chose on Monte Carlo estimation.
+```
+str(post0) # contains 1,000 iterations
+str(post1) # contains 1,000 iterations
 
- - Autocorrelation is important because it tells us how much information is available in our Markov chain. Sampling 1000 iterations from a highly correlated Markov chain yields less information about the stationary distribution than we would obtain from 1000 samples independently drawn from the stationary distribution.
- - Autocorrelation is a major component in calculating the `Monte Carlo effective sample size` of your chain. It is how many independent samples from the stationary distribution you would have to draw to have equivalent information in your Markov chain. Essentially it is the `m`(sample size) we chose on Monte Carlo estimation.
+coda::effectiveSize(as.mcmc(post0$mu)) # effective sample size of ~170
+coda::effectiveSize(as.mcmc(post1$mu)) # effective sample size of ~3
+```
+<img src="https://user-images.githubusercontent.com/31917400/48551842-95447a00-e8ce-11e8-803b-8854aa870051.jpg" />
 
-
-
+ - **Thin out** the samples until autocorrelation is essentially `0`(for example, run the chain many more iterations..). This will leave you with approximately independent samples, and the number of samples remaining is similar to the `effective sample size`.
+ - The chain from `post0` has 1,000 iterations, but an effective sample size of about `170`. That is, this chain essentially provides the equivalent of `170` **independent Monte Carlo samples**.
 
 > Burn-in
  - We have also seen how the initial value of the chain can affect how quickly the chain converges. If our initial value is far from the bulk of the posterior distribution, then it may take a while for the chain to travel there. 
  - Clearly, the first 100 or so iterations do not reflect draws from the stationary distribution, so they should be discarded before we use this chain for Monte Carlo estimates. This is called the “burn-in” period. You should always discard early iterations that do not appear to be coming from the stationary distribution. Even if the chain appears to have converged early on, it is safer practice to discard an initial burn-in.
+ - It is usually a good idea to check the Monte Carlo effective sample size of your chain. If all you seek is a posterior mean estimate, then an effective sample size of a few hundred to a few thousand should be enough. However, if you want to create something like a **95% posterior interval**, you may need many thousands of effective samples to produce a reliable estimate of the outer edges of the distribution. The number you need can be quickly calculated using the `Raftery and Lewis diagnostic`.
+```
+raftery.diag(as.mcmc(post0$mu))
+raftery.diag(as.mcmc(post0$mu), q=0.005, r=0.001, s=0.95)
+```
+<img src="https://user-images.githubusercontent.com/31917400/48552541-ccb42600-e8d0-11e8-9c06-c80eb201c10c.jpg" />
 
 
 > Gelman-Rubin
