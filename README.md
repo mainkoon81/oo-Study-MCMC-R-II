@@ -124,10 +124,18 @@ summary(as.mcmc(post))
 <img src="https://user-images.githubusercontent.com/31917400/48300964-086c7b80-e4de-11e8-8dbe-cce6dca91043.jpg" />
 
 ## 4. Assessing Convergence
-We've simulated a Markov chain whose stationary distribution is the target(posterior) distribution. Before using the simulated chain **to obtain Monte Carlo estimates**, we should first ask ourselves: Has our simulated Markov chain converged to its stationary distribution yet? We don't know..
+We've simulated a Markov chain whose stationary distribution is the target(posterior) distribution. Before using the simulated chain **to obtain Monte Carlo estimates**, we should first ask ourselves: `Has our simulated Markov chain converged to its **stationary distribution yet?` We don't know..
 > Trace_plot
- - The first visual tool for assessing chains is the trace_plot. It shows the history of a parameter value across iterations of the chain. It shows you precisely where the chain has been exploring.
+ - It shows the history of a parameter value across iterations of the chain. It shows you precisely where the chain has been exploring.
+ - If the chain is stationary, it should not be showing any long-term trends. If this is the case, you need to run the chain many more iterations. 
+```
+post0 = MH(n, ybar, n_iter=1e3, mu_init=0.0, cand_sd=0.9)
+coda::traceplot(as.mcmc(post0$mu[-c(1:500)]))
 
+post1 = MH(n, ybar, n_iter=1e3, mu_init=0.0, cand_sd=0.04)
+coda::traceplot(as.mcmc(post1$mu[-c(1:500)]))
+```
+<img src="https://user-images.githubusercontent.com/31917400/48550245-22390480-e8ca-11e8-9e72-f992faeb7f0a.jpg" />
 
 > autocorrelation_plot
  - Looking at the level of autocorrelation in each. Autocorrelation is a number between −1 and +1 which measures how linearly dependent the current value of the chain is on past values. We call this `lags`. 
