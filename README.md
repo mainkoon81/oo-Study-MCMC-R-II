@@ -172,13 +172,53 @@ raftery.diag(as.mcmc(post0$mu), q=0.005, r=0.001, s=0.95)
 <img src="https://user-images.githubusercontent.com/31917400/48552975-249f5c80-e8d2-11e8-894d-67e3a9579e41.jpg" />
 
 > Burn-in
- - We have also seen how the initial value of the chain can affect how quickly the chain converges. If our initial value is far from the bulk of the posterior distribution, then it may take a while for the chain to travel there. 
- - Clearly, the first 100 or so iterations do not reflect draws from the stationary distribution, so they should be discarded before we use this chain for Monte Carlo estimates. This is called the “burn-in” period. You should always discard early iterations that do not appear to be coming from the stationary distribution. Even if the chain appears to have converged early on, it is safer practice to discard an initial burn-in.
+ - We have also seen how the `initial value` of the chain can affect how **quickly** the chain converges. If our initial value is far from the bulk of the posterior distribution, then it may take a while for the chain to travel there. In our earlier example, 
+ <img src="https://user-images.githubusercontent.com/31917400/48793722-ca4a3580-ecef-11e8-839f-b4131f30d946.jpg" />
+
+ - Clearly, **the first 100 or so iterations** do not reflect draws from the **stationary distribution**, so they should be discarded before we use this chain for Monte Carlo estimates. This is called the `“burn-in” period`. You should always discard early iterations that do not appear to be coming from the stationary distribution. Even if the chain appears to have converged early on, it is safer practice to discard an initial burn-in.
 
 > Gelman-Rubin & Mulitple chains
- - If we want to be more confident that we have converged to the true stationary distribution, we can simulate multiple chains, each with a different starting value.
- 
- 
+ - If we want to be more confident that we have converged to the true stationary distribution, **we can simulate multiple chains, each with a different starting value**.
+```
+set.seed(61)
+nsim = 500
+
+post1 = MH(n=n, ybar=ybar, n_iter=nsim, mu_init=15.0, cand_sd=0.4)
+post1$accpt
+
+post2 = MH(n=n, ybar=ybar, n_iter=nsim, mu_init=-5.0, cand_sd=0.4)
+post2$accpt
+
+post3 = MH(n=n, ybar=ybar, n_iter=nsim, mu_init=7.0, cand_sd=0.1)
+post3$accpt
+
+post4 = MH(n=n, ybar=ybar, n_iter=nsim, mu_init=23.0, cand_sd=0.5)
+post4$accpt
+
+post5 = MH(n=n, ybar=ybar, n_iter=nsim, mu_init=-17.0, cand_sd=0.4)
+post5$accpt
+
+pmc = mcmc.list(as.mcmc(post1$mu), as.mcmc(post2$mu), as.mcmc(post3$mu), as.mcmc(post4$mu), as.mcmc(post5$mu))
+str(pmc)
+coda::traceplot(pmc)
+```
+<img src="https://user-images.githubusercontent.com/31917400/48794630-742ac180-ecf2-11e8-875a-e4d2188165dc.jpg" />
+
+ - It appears that after about iteration 200, all chains are exploring the stationary (posterior) distribution. We can back up our visual results with the Gelman and Rubin diagnostic. This diagnostic statistic calculates the variability within chains, comparing that to the variability between chains. If all chains have converged to the stationary distribution, the variability between chains should be relatively small, and the potential scale reduction factor, reported by the the diagnostic, should be close to one. If the values are much higher than one, then we would conclude that the chains have not yet converged.
+```
+coda::gelman.diag(pmc)
+coda::gelman.plot(pmc)
+```
+
+## 5. Monte Carlo estimation
+If we are reasonably confident that our Markov chain has converged, then we can go ahead and treat it as a Monte Carlo sample from the posterior distribution. Calculate posterior quantities like the posterior mean and posterior intervals from the samples directly.
+```
+nburn = 1000 # remember to discard early iterations
+post0$mu_keep = post0$mu[-c(1:1000)]
+summary(as.mcmc(post0$mu_keep))
+
+mean(post$mu_keep > 1.0) # posterior probability that mu  > 1.0
+```
 
 
 
