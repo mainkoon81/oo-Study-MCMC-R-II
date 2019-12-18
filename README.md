@@ -1,7 +1,7 @@
 # Study-V003-MCMC-Python-R-II
 
 ### (B) Example for Metropolis Hastings II.(continuous MarkovChain - multiple parameters)
- - I have a model that is not conjugate. What should I do?
+ - I have a model that is not conjugate. What should I do? Do MCMC or VI..dude..but you still need prior for sure.
  
 ## 3. Gibbs Sampling(basic)
 Sample the two parameters one at a time? `P(θ,ϕ|y) ∝ g(θ,ϕ)`
