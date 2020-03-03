@@ -222,7 +222,8 @@ summary(as.mcmc(post0$mu_keep))
 mean(post$mu_keep > 1.0) # posterior probability that mu  > 1.0
 ```
 
-
+------------------------------------------------------------------------------------------------------
+# Inverse Monte Carlo Method and Inverse Problem 
 
 
 
