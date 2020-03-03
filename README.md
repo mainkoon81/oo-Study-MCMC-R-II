@@ -224,8 +224,17 @@ mean(post$mu_keep > 1.0) # posterior probability that mu  > 1.0
 
 ------------------------------------------------------------------------------------------------------
 # Inverse Monte Carlo Method and Inverse Problem 
+Let's consider the "Inverse Problems" for which we have incomplete knowledge of the relationship between data and model parameters. This is the case for many highly nonlinear problems, where the forward relation is insusceptible to mathematical analysis, and is only given by a complex algorithm. 
 
+MonteCarlo methods can be divided into two groups
+ - the first of which is devoted to sampling from a probability density
+ - the second is designed to search for near optimal solutions to the problem. 
 
+Sampling discrete models in a uniform random fashion between pairs of upper and lower bounds, which were chosen a priori. Each generated  model was tested for its fit to the available data and then accepted or rejected. 
+ - It can avoid all assumptions (such as linearity between the observables and the unknowns representing the model upon which most previous techniques relied).
+ - A measure of uniqueness of the solutions would be obtained by examining the degree to which the successful models agreed or disagreed. 
+ - We can map out a region of acceptable models in parameter space. This was done by deterministically sampling all models in the vicinity of an acceptable model, which had previously been determined by MCI. The whole process could then be repeated many times over. 
+ -  One problem was that it is never known whether sufficient number of models had been tested. It was always possible that acceptable models may exist that bear no resemblance to the satisfactory models obtained. 
 
 
 
