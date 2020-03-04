@@ -224,21 +224,21 @@ mean(post$mu_keep > 1.0) # posterior probability that mu  > 1.0
 
 ------------------------------------------------------------------------------------------------------
 # Inverse Monte Carlo Method and Inverse Problem 
-Let's consider the "Inverse Problems" for which we have incomplete knowledge of the relationship between data and model parameters. This is the case for many highly nonlinear problems, where the forward relation is insusceptible to mathematical analysis, and is only given by a complex algorithm. 
+Let's consider the "Inverse Problems" for which we have incomplete knowledge of the relationship between data and model parameters. This is the case for many highly nonlinear problems, where the forward relation is insusceptible to mathematical analysis. When analysing an inverse problem, obtaining a maximum likelihood model is usually not sufficient, as we normally also wish to have `information on the resolution power`? of the data. **In the general case we may have a large number of model parameters, and an inspection of the marginal probability densities of interest maybe impractical**. But it is possible to pseudorandomly generate a large collection of models according to the posterior probability distribution. This can be accomplished by means of an efficient Monte Carlo method, even in cases where no explicit formula for the a priori distribution is available. The most well known importance sampling method, the `Metropolis algorithm` gives a method that allows analysis of (possibly highly nonlinear) inverse problems with complex a priori information and data with an arbitrary noise distribution.
 
-MonteCarlo methods can be divided into two groups
- - the first of which is devoted to sampling from a probability density
- - the second is designed to search for near optimal solutions to the problem. 
-
-Sampling discrete models in a uniform random fashion between pairs of upper and lower bounds, which were chosen a priori. Each generated  model was tested for its fit to the available data and then accepted or rejected. 
+Probabilistic formulation of `inverse problems` leads to the definition of a **probability distribution in the model space**. This probability distribution combines a priori information(model parameters..) with new information obtained by measuring some observable parameters(data). As the theory linking **data** with **model parameters** is nonlinear, the a posteriori probability in the model space may not be easy to describe (it may be multimodal, some moments may not be defined, etc.). Inverse MonteCarlo does Sampling `discrete models` in a uniform random fashion between pairs of upper and lower bounds, which were chosen a priori. Each generated model was tested for `its fit to the available data` and then accepted or rejected. We can map out a region of acceptable models in parameter space. This was done by deterministically **sampling all models** in the vicinity of an acceptable model, which had previously been determined by IMC. The whole process could then be repeated many times over. It has some advantanges like: 
  - It can avoid all assumptions (such as linearity between the observables and the unknowns representing the model upon which most previous techniques relied).
- - A measure of uniqueness of the solutions would be obtained by examining the degree to which the successful models agreed or disagreed. 
- - We can map out a region of acceptable models in parameter space. This was done by deterministically sampling all models in the vicinity of an acceptable model, which had previously been determined by MCI. The whole process could then be repeated many times over. 
- -  One problem was that it is never known whether sufficient number of models had been tested. It was always possible that acceptable models may exist that bear no resemblance to the satisfactory models obtained. 
+ - A measure of uniqueness of the solutions would be obtained by **examining the degree** to which the successful models agreed or disagreed. 
 
-Probabilistic formulation of inverse problems leads to the definition of a probability distribution in the model space. This probability distribution combines a priori information with new information obtained by measuring some observable parameters (data). As, in the general case, the theory linking data with model parameters is nonlinear, the a posteriori probability in the model space may not be easy to describe (it may be multimodal, some moments may not be defined, etc.). When analysing an inverse problem, obtaining a maximum likelihood model is usually not sufficient, as we normally also wish to have information on the resolution power of the data. In the general case we may have a large number of model parameters, and an inspection of the marginal probability densities of interest may be impractical, or even useless. But it is possible to pseudorandomly generate a large collection of models according to the posterior probability distribution and to analyse and display the models in such a way that information on the relative likelihoods of model properties is conveyed to the spectator. This can be accomplished by means of an efficient Monte Carlo method, even in cases where no explicit formula for the a priori distribution is available. The most well known importance sampling method, the Metropolis algorithm, can be generalized, and this gives a method that allows analysis of (possibly highly nonlinear) inverse problems with complex a priori information and data with an arbitrary noise distribution.
+One problem was that it is never known whether sufficient number of models had been tested. It was always possible that acceptable models may exist that bear no resemblance to the satisfactory models obtained. 
+
+ 
 
 
+
+MonteCarlo methods can be divided into two groups?
+ - the first of which is devoted to sampling from a probability density
+ - the second is to search for near optimal solutions to the problem ??????????????????too broad?? 
 
 
 
