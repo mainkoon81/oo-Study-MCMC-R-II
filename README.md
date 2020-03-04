@@ -222,11 +222,26 @@ summary(as.mcmc(post0$mu_keep))
 mean(post$mu_keep > 1.0) # posterior probability that mu  > 1.0
 ```
 
+MonteCarlo methods can be divided into two groups????
+ - the first of which is devoted to sampling from a probability density
+ - the second is to search for near optimal solutions to the problem ??????????????????too broad?? 
+ 
 ------------------------------------------------------------------------------------------------------
-# Inverse Monte Carlo Method and Inverse Problem 
-Let's consider the "Inverse Problems" for which we have incomplete knowledge of the relationship between data and model parameters. This is the case for many highly nonlinear problems, where the forward relation is insusceptible to mathematical analysis. When analysing an inverse problem, obtaining a maximum likelihood model is usually not sufficient, as we normally also wish to have `information on the resolution power`? of the data. **In the general case we may have a large number of model parameters, and an inspection of the marginal probability densities of interest maybe impractical**. But it is possible to pseudorandomly generate a large collection of models according to the posterior probability distribution. This can be accomplished by means of an efficient Monte Carlo method, even in cases where no explicit formula for the a priori distribution is available. The most well known importance sampling method, the `Metropolis algorithm` gives a method that allows analysis of (possibly highly nonlinear) inverse problems with complex a priori information and data with an arbitrary noise distribution.
+# Inverse Problem 
+The general inverse problem is characterized by at least one of the following two complications:
+ - Data can only be computed from the model by means of a numerical algorithm
+ - the a priori model constraints can only be expressed via numerical algorithms(prior information is only available as an algorithm)
+ 
+The only way to proceed is to use sampling methods that **collect information on the posterior in the model space**. 
 
-Probabilistic formulation of `inverse problems` leads to the definition of a **probability distribution in the model space**. This probability distribution combines a priori information(model parameters..) with new information obtained by measuring some observable parameters(data). As the theory linking **data** with **model parameters** is nonlinear, the a posteriori probability in the model space may not be easy to describe (it may be multimodal, some moments may not be defined, etc.). Inverse MonteCarlo does Sampling `discrete models` in a uniform random fashion between pairs of upper and lower bounds, which were chosen a priori. Each generated model was tested for `its fit to the available data` and then accepted or rejected. We can map out a region of acceptable models in parameter space. This was done by deterministically **sampling all models** in the vicinity of an acceptable model, which had previously been determined by IMC. The whole process could then be repeated many times over. It has some advantanges like: 
+Let's consider the "Inverse Problems" for which we have incomplete knowledge of the relationship between `data` and `model parameters`. This is the case for many highly **nonlinear problems**, where the forward relation is insusceptible to mathematical analysis. When analysing an inverse problem, obtaining a maximum likelihood model is usually not sufficient, as we normally also wish to have `information on the resolution power`? of the data (resolution measures "non-uniqueness" and "uncertainty" of solution). **In the general case we may have a large number of model parameters, and an inspection of the marginal probability densities of interest maybe impractical**. But it is possible to **`pseudorandomly generate a large collection of models according to the posterior probability distribution`**. This can be accomplished by means of an Inverse Monte Carlo method, even in cases where no explicit formula for the a priori distribution is available. The most well known importance sampling method, the `Metropolis algorithm` gives a method that allows analysis of (possibly highly nonlinear) inverse problems with complex a priori information and data with an arbitrary noise distribution.
+
+# Inverse MonteCarlo
+Probabilistic formulation of `inverse problems` leads to the definition of a **probability distribution in the model space**. This probability distribution combines a priori information(model parameters..) with new information obtained by measuring some observable parameters(data). As the theory linking **data** with **model parameters** is nonlinear, the a posteriori probability in the model space may not be easy to describe (it may be multimodal, some moments may not be defined, etc.). 
+
+**Inverse MonteCarlo does Sampling `discrete models` in a uniform random fashion between pairs of upper and lower bounds, which were chosen a priori. Each generated model was tested for `its fit to the available data` and then accepted or rejected.** We can map out a region of acceptable models in parameter space. This was done by deterministically **sampling all models** in the vicinity of an acceptable model, which had previously been determined by IMC. The whole process could then be repeated many times over. Once a collection of models sampled according to the posterior is available, it is possible to estimate, not only posterior model parameter covariances, but also resolution measures. The resolution analysis may also provide new insight into problems that are usually treated by means of analytical methods.
+
+It has some advantanges like: 
  - It can avoid all assumptions (such as linearity between the observables and the unknowns representing the model upon which most previous techniques relied).
  - A measure of uniqueness of the solutions would be obtained by **examining the degree** to which the successful models agreed or disagreed. 
 
@@ -236,9 +251,6 @@ One problem was that it is never known whether sufficient number of models had b
 
 
 
-MonteCarlo methods can be divided into two groups?
- - the first of which is devoted to sampling from a probability density
- - the second is to search for near optimal solutions to the problem ??????????????????too broad?? 
 
 
 
