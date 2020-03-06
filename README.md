@@ -228,8 +228,8 @@ MonteCarlo methods can be divided into two groups????
  
 ------------------------------------------------------------------------------------------------------
 # Inverse Problem 
- - <Forward relation: posterior -> predictive> Let's say we know the position of particles(we know model parameters: `source`). This makes it easy to predict the collective behaviour of the particles(we can predict obv: `output`)
- - <Backward relation: wtf posterior????> However, even though we know the particles' collective behavior(we know obv: `output`), it's not to say we always understand the position of particles(we can't understand model parameters: `source`)! 
+ - <Forward relation: find posterior -> obtain predictive> Let's say we know the position of particles(we know model parameters: `source`). This makes it easy to predict the collective behaviour of the particles(we can predict obv: `output`)
+ - <Backward relation: find predictive -> obtain posterior ?> However, even though we know the particles' collective behavior(we know obv: `output`), it's not to say we always understand the position of particles(we can't understand model parameters: `source`)! 
 
 Inverse problem theory is describing how information about a parameterized physical system can be derived from 1.`observational data`, 2.`theoretical relationships` between model parameters and data, and 3.`prior information`. 
 
