@@ -295,7 +295,7 @@ Output from the combined algorithm consists of a collection of models. This coll
 In the inverse problem, the actual values of the model parameter can be underdetermined, due to lack of **significant data** or due to **`experimental uncertainties`**. It can also be overdetermined, if we repeat similar measurements. A better question would have been: **What information can we infer on the actual value of the model parameter vector m**? The Bayesian approach to inverse problems, describes the **`a priori information`**. We may have on the model vector m, by a **priori** density `ρ(m)`. We have the likelihood. As an example, when we describe experimental results(obv) `L(m)` by a vector of observed values ![formula](https://render.githubusercontent.com/render/math?math=d_\obv) with **`Gaussian experimental uncertainties`** described by a **covariance matrix `C`**, <img src="https://user-images.githubusercontent.com/31917400/76145629-05a67a00-6083-11ea-992b-91f52fa67db2.jpg" /> But how to introduce realistic a **priori** information in the model space? 
 
 ### model parameter discretization
-
+If ![formula](https://render.githubusercontent.com/render/math?math=m_i) is continuous, f(![formula](https://render.githubusercontent.com/render/math?math=m_i)) is a density, thus 
 
 
 
