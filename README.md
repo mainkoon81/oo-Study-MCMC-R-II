@@ -229,9 +229,14 @@ MonteCarlo methods can be divided into two groups????
 ------------------------------------------------------------------------------------------------------
 # Inverse Problem 
  - <Forward relation: find posterior -> obtain predictive> Let's say we know the position of particles(we know model parameters: `source`). This makes it easy to predict the collective behaviour of the particles(we can predict obv: `output`)
- - <Backward relation: find predictive -> obtain posterior ?> However, even though we know the particles' collective behavior(we know obv: `output`), it's not to say we always understand the position of particles(we can't understand model parameters: `source`)! 
+   - forward: Mapping from the model space M into the **data space D**
+     - ![formula](https://render.githubusercontent.com/render/math?math=d_predict=g(m))
+ 
+ - <Backward relation: find predictive -> obtain posterior ?> However, even though we know the particles' collective behavior(we know obv: `output`), it's not to say we always understand the position of particles(we can't understand model parameters: `source`)!
+   - Backward: Mapping from the Data space D into the **model space M**
+     - ![formula](https://render.githubusercontent.com/render/math?math=d_obv=g(m))  
 
-Inverse problem theory is describing how information about a parameterized physical system can be derived from 1.`observational data`, 2.`theoretical relationships` between model parameters and data, and 3.`prior information`. 
+Inverse problem theory is describing how information about a **parameterized physical system** can be derived from 1.`observational data`, 2.`theoretical relationships` between model parameters and data, and 3.`prior information`. 
 
 Let's consider the "Inverse Problems" for which we have incomplete knowledge of the relationship between `data` and `model parameters`.
 [Linear relations] between **model parameters** and **data parameters** and, for example, [assumptions] about `Gaussian noise` and `Gaussian A priori probability density` result in analytical expressions for resolution indicators like, for instance, "resolution kernels?" and a "posteriori covariance matrices?". But the situation is quite different for the general inverse problem.  
@@ -239,10 +244,11 @@ Let's consider the "Inverse Problems" for which we have incomplete knowledge of 
 The general inverse problem is characterized by at least one of the following two complications:
  - crazy Likelihood: **Data** can only be computed from the model by means of a numerical algorithm
  - crazy Prior: **A priori model parameter constraints** can only be expressed via numerical algorithms(prior information is only available as an algorithm)
- - The relationship between `data` and `model parameters` is non-linear?
+ - The relationship ??`D` = F(`m`)??? between `data` and `model parameters` is non-linear?
+ - we know `D`, but do not know `σ(m)`? 
  - so...we cannot get the Joint function! The only way to proceed is to use sampling methods that **collect information on the posterior in the model space**. 
 
-This is the case for many highly **nonlinear problems**, where the forward relation is insusceptible to mathematical analysis. When analysing an inverse problem, obtaining a maximum likelihood model is usually not sufficient, as we normally also wish to have `information on the resolution power`? of the data (resolution measures "non-uniqueness" and "uncertainty" of solution). Early examples of analysis of nonlinearizable inverse problems were mainly focused on the construction of best fitting models, but today it is widely acknowledged that uncertainty and nonuniqueness analysis is very important for the assessment of scientiﬁc conclusions based on inverse calculations. So no more point estimates!!! 
+This is the case for many highly **nonlinear problems**, where the forward relation is insusceptible to mathematical analysis. When analysing an inverse problem, obtaining a maximum likelihood model is usually not sufficient, as we normally also wish to have `information on the resolution power`? of the data (resolution measures "non-uniqueness" and "uncertainty" of solution). Early examples of analysis of nonlinearizable inverse problems were mainly focused on the construction of best fitting models, but today it is widely acknowledged that uncertainty and nonuniqueness analysis is very important for the assessment of scientific conclusions based on inverse calculations. So no more point estimates!!! 
 
 # Inverse MonteCarlo
 **In the general case we may have a large number of model parameters, and an inspection of the marginal probability densities of interest maybe impractical**. But it is possible to **`pseudorandomly generate a large collection of models according to the posterior probability distribution world`**. This can be accomplished by means of an Inverse Monte Carlo method, even in cases where no explicit formula for the a priori distribution is available. The most well known importance sampling method, the `Metropolis algorithm` gives a framework that allows analysis of (possibly highly nonlinear) inverse problems with complex a priori information and data with an arbitrary noise distribution.
@@ -254,9 +260,70 @@ It has some advantanges like:
  - It can avoid all assumptions (such as linearity between the observables and the unknowns representing the model upon which most previous techniques relied).
  - A measure of uniqueness of the solutions would be obtained by **examining the degree** to which the successful models agreed or disagreed. 
 
-One problem was that it is never known whether sufficient number of models had been tested. It was always possible that acceptable models may exist that bear no resemblance to the satisfactory models obtained. 
+> One problem was that it is never known whether sufficient number of models had been tested. It was always possible that acceptable models may exist that bear no resemblance to the satisfactory models obtained. 
 
+
+
+### What's the matter?
+ - **σ(m)** represents our a posteriori information, deduced from `σ(m)` = k*`ρ(m)`*`L(m)`
+   - **ρ(m)** represents our a priori information on models
+   - **L(m)** represents our likelihood information as a measure of **degree of fit** between `data` predicted from models with `m` and `actual observed data`. Typically, this is done through the introduction of a **misfit function S(m)**, connected to **L(m)** through an expression: `L(m)` = k*exp(−`S(m)`) ???????
+
+ - ???? When analyzing **nonlinear inverse problems of high dimensionality**, it is necessary to severely restrict the number of **misfit calculations**. Of course, it may be ideal that all model parameters within the considered model subspace are visited, but the task is computationally unfeasible when problems with **many model parameters** are considered. In this regards, `Monte Carlo Search`, which consists of a **random walk** in the model space, extensively samples the model space, avoids **entrapment in local maxima** by taking advantage of the fact that **all local maxima** are sampled. 
+ - ???? Let's say Random walks sample the posterior density `σ(m)`. However, in cases where `σ(m)` has narrow maxima, these maxima will be very sparsely sampled. In such cases, sampling of the model space can be improved by MC importance sampling by sampling the model space with a probability density as close to the **posterior** `σ(m)` as possible.  
+ - ???? The peaks of the **prior distribution** are typically much less pronounced than the peaks of the **posterior distribution**. Moreover, the peaks of the two distributions may not even coincide. It would therefore be preferable to draw sample models from the model space according to a probability distribution close to the **posterior** `σ(m)` 
+
+ - Metropolis algorithm generates the posteriors, from which they computed model estimates. One of the problems is that it requires an explicit formula for the a **priori distribution**! 
+
+
+### New sampling algorithm
+We want the model solutions are sampled at a rate proportional to their a posteriori probabilities, that is, **`models` consistent with a "priori information" as well as "observations" are picked most often**, whereas models that are in incompatible with either a priori information or observations (or both) are rarely sampled. 
+
+our sampling algorithm can be described as consisting of two components: 
+ - The first component **generates** a `priori models`, that is, models sampled with a frequency distribution equal to the a priori distribution in the model space. This is accomplished by means of a random walk. This step may consist of a large number of mutually dependent sub-processes, each of which generates part of the a priori models. 
+
+ - The second component **accepts or rejects** attempted moves of the a `priori random walk` with probabilities that depend on the models ability to reproduce observations. 
+
+In this algorithm, the a priori distribution need not be given by an explicit formula. 
+
+The definition of which models are accessible from a given model is an essential ingredient of the method. We will “jump” from a model to a neighboring model. 
+
+Output from the combined algorithm consists of a collection of models. This collection of models is shown to have a frequency distribution that is (asymptotically) proportional to the a **posteriori** distribution in the model space. 
  
+ 
+> model parameters taking continuous values
+In the inverse problem, things can be underdetermined, due to lack of significant data or due to experimental uncertainties. It can also be overdetermined, if we repeat similar measurements. A better question would have been: **What information can we infer on the actual value of the model parameter vector m**?  
+
+
+> model parameter discretization
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
