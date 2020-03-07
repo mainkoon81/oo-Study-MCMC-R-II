@@ -234,7 +234,7 @@ MonteCarlo methods can be divided into two groups????
  
  - <Backward relation: find predictive -> obtain posterior ?> However, even though we know the particles' collective behavior(we know obv: `output`), it's not to say we always understand the position of particles(we can't understand model parameters: `source`)!
    - Backward: Mapping from the Data space D into the **model space M**
-     - ![formula](https://render.githubusercontent.com/render/math?math=d_obv=g(m))  
+     - ![formula](https://render.githubusercontent.com/render/math?math=d_\obv=g(m))  
 
 Inverse problem theory is describing how information about a **parameterized physical system** can be derived from 1.`observational data`, 2.`theoretical relationships` between model parameters and data, and 3.`prior information`. 
 
@@ -244,8 +244,8 @@ Let's consider the "Inverse Problems" for which we have incomplete knowledge of 
 The general inverse problem is characterized by at least one of the following two complications:
  - crazy Likelihood: **Data** can only be computed from the model by means of a numerical algorithm
  - crazy Prior: **A priori model parameter constraints** can only be expressed via numerical algorithms(prior information is only available as an algorithm)
- - The relationship ??`D` = F(`m`)??? between `data` and `model parameters` is non-linear?
- - we know `D`, but do not know `σ(m)`? 
+ - The relationship ??`d` = g(`m`)??? between `data` and `model parameters` is non-linear?
+ - we know `d`, but do not know `σ(m)`, or `ρ(m)`? 
  - so...we cannot get the Joint function! The only way to proceed is to use sampling methods that **collect information on the posterior in the model space**. 
 
 This is the case for many highly **nonlinear problems**, where the forward relation is insusceptible to mathematical analysis. When analysing an inverse problem, obtaining a maximum likelihood model is usually not sufficient, as we normally also wish to have `information on the resolution power`? of the data (resolution measures "non-uniqueness" and "uncertainty" of solution). Early examples of analysis of nonlinearizable inverse problems were mainly focused on the construction of best fitting models, but today it is widely acknowledged that uncertainty and nonuniqueness analysis is very important for the assessment of scientific conclusions based on inverse calculations. So no more point estimates!!! 
@@ -292,7 +292,9 @@ Output from the combined algorithm consists of a collection of models. This coll
  
  
 > model parameters taking continuous values
-In the inverse problem, things can be underdetermined, due to lack of significant data or due to experimental uncertainties. It can also be overdetermined, if we repeat similar measurements. A better question would have been: **What information can we infer on the actual value of the model parameter vector m**?  
+In the inverse problem, the actual values of the model parameter can be underdetermined, due to lack of **significant data** or due to **experimental uncertainties**. It can also be overdetermined, if we repeat similar measurements. A better question would have been: **What information can we infer on the actual value of the model parameter vector m**? The Bayesian approach to inverse problems, describes the **`a priori information`**. We may have on the model vector m, by a **priori** density `ρ(m)`. We have the likelihood. As an example, when we describe experimental results by a vector of observed values ![formula](https://render.githubusercontent.com/render/math?math=d_\obv) with **Gaussian experimental uncertainties** described by a `covariance matrix C`, <img src="https://user-images.githubusercontent.com/31917400/76145629-05a67a00-6083-11ea-992b-91f52fa67db2.jpg" />
+
+But how to introduce realistic a **priori** information in the model space? 
 
 
 > model parameter discretization
