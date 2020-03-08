@@ -300,7 +300,8 @@ If this is the case...
 
 ### First sample the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) then we will modify this sampling procedure in such a way that the probability ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i) is eventually sampled (One never creates a probability ex-nihilo(out of nothing) but rather modifies some prior into a posterior).
 
-
+### Sampling probabilities
+Given a set of points in a model space, with a probability ![formula](https://render.githubusercontent.com/render/math?math=p_i) attached to every ![formula](https://render.githubusercontent.com/render/math?math=m_i), how can we deﬁne random rules to select points such that the probability of selecting point ![formula](https://render.githubusercontent.com/render/math?math=m_i) is ![formula](https://render.githubusercontent.com/render/math?math=p_i) ?
 
 
 
