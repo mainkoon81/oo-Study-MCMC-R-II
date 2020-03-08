@@ -298,8 +298,7 @@ If ![formula](https://render.githubusercontent.com/render/math?math=m_i) is cont
 If this is the case...
 <img src="https://user-images.githubusercontent.com/31917400/76166280-571f3980-6155-11ea-9d74-7f3f58521ec3.jpg" /> Now we can sample directly the posterior probability ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i). 
 
- - First sampling the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i). It will then modify this sampling procedure in such a way that the probability ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i) is eventually sampled. 
- - One never creates a probability ex-nihilo(out of nothing) but rather modifies some prior into a posterior.
+### First sample the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) then we will modify this sampling procedure in such a way that the probability ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i) is eventually sampled (One never creates a probability ex-nihilo(out of nothing) but rather modifies some prior into a posterior).
 
 
 
