@@ -244,7 +244,7 @@ Let's consider the "Inverse Problems" for which we have incomplete knowledge of 
 The general inverse problem is characterized by at least one of the following two complications:
  - crazy Likelihood: **Data** can only be computed from the model by means of a numerical algorithm
  - crazy Prior: **A priori model parameter constraints** can only be expressed via numerical algorithms(prior information is only available as an algorithm)
- - The relationship ??`d` = g(`m`)??? `f(d) = ∫ L(m)ρ(m)dm`??? between `data` and `model parameters` is non-linear?
+ - The relationship ??`d` = g(`m`)??? `f(d) = ∫ L(m)σ(m)dm`??? between `data` and `model parameters` is non-linear?
  - we know `d`, but do not know `σ(m)`, or `ρ(m)`????
  - so...we cannot get the Joint function! The only way to proceed is to use sampling methods that **collect information on the posterior in the model space**. 
 
