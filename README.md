@@ -244,8 +244,8 @@ Let's consider the "Inverse Problems" for which we have incomplete knowledge of 
 The general inverse problem is characterized by at least one of the following two complications:
  - crazy Likelihood: **Data** can only be computed from the model by means of a numerical algorithm
  - crazy Prior: **A priori model parameter constraints** can only be expressed via numerical algorithms(prior information is only available as an algorithm)
- - The relationship ??`d` = g(`m`)??? between `data` and `model parameters` is non-linear?
- - we know `d`, but do not know `σ(m)`, or `ρ(m)`? 
+ - The relationship ??`d` = g(`m`)??? `f(d) = ∫ L(m)ρ(m)dm`??? between `data` and `model parameters` is non-linear?
+ - we know `d`, but do not know `σ(m)`, or `ρ(m)`????
  - so...we cannot get the Joint function! The only way to proceed is to use sampling methods that **collect information on the posterior in the model space**. 
 
 This is the case for many highly **nonlinear problems**, where the forward relation is insusceptible to mathematical analysis. When analysing an inverse problem, obtaining a maximum likelihood model is usually not sufficient, as we normally also wish to have `information on the resolution power`? of the data (resolution measures "non-uniqueness" and "uncertainty" of solution). Early examples of analysis of nonlinearizable inverse problems were mainly focused on the construction of best fitting models, but today it is widely acknowledged that uncertainty and nonuniqueness analysis is very important for the assessment of scientific conclusions based on inverse calculations. So no more point estimates!!! 
