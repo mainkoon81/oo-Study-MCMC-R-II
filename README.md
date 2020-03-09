@@ -323,7 +323,7 @@ It is a "flow" as it can be interpreted as the number of particles going to poin
 ### Use your Likelihood
 Assume that some **random rules** are given that define a random walk having **prior** {![formula](https://render.githubusercontent.com/render/math?math=\rho_i)} as its equilibrium probability(unif or not). How can this rules be modified so that the **new random walk** converge at **posterior** {![formula](https://render.githubusercontent.com/render/math?math=\sigma_i)}? 
  - First, if that "proposed transition" i ← j was always accepted, then the random walker would sample the **prior probability**: {![formula](https://render.githubusercontent.com/render/math?math=\rho_i)}! 
- - Let us, however, instead of always accepting the proposed transition i ← j , sometimes thwart it by using the following rule to decide `if he is allowed to move to i` or `if he is forced to stay at j`: <img src="https://user-images.githubusercontent.com/31917400/76234932-4983b580-6222-11ea-80a1-e906d8122a8f.jpg" /> then the random walker will sample the **posterior probability** {![formula](https://render.githubusercontent.com/render/math?math=\sigma_i)(posteriori)}. 
+ - Let us, however, instead of always accepting the proposed transition i ← j , sometimes thwart it by using the following rule to decide `if he is allowed to move to i` or `if he is forced to stay at j`: <img src="https://user-images.githubusercontent.com/31917400/76234932-4983b580-6222-11ea-80a1-e906d8122a8f.jpg" /> then the random walker will sample the **posterior probability** {![formula](https://render.githubusercontent.com/render/math?math=\sigma_i)}. 
  
  This modification rule, reminiscent of the Metropolis algorithm, is not the only one possible.   
   
