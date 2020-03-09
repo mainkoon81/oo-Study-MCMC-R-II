@@ -309,6 +309,9 @@ The sampling methods is the random walks. The **possible paths** of a random wal
 
 Let's say there is a probability ![formula](https://render.githubusercontent.com/render/math?math=q_i) that the random walk is initiated at **point_i**. Then, when the number of steps tends to infinity, the probability that the random walker is at **point_i** will converge to some other probability **"![formula](https://render.githubusercontent.com/render/math?math=\p_i)"** which is an equilibrium distribution of {"![formula](https://render.githubusercontent.com/render/math?math=\P_\ij)"}...so ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\P_\ij\p_i=\p_i)   
 
+Instead of letting ![formula](https://render.githubusercontent.com/render/math?math=\p_i) represent the probability that a (single) random walker is at **point_i**, we can let ![formula](https://render.githubusercontent.com/render/math?math=\p_i) be the number of "particles" at **point_i**. Then ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\p_i) represents the "total number of particles"...and not 1.
+
+![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\P_\ij)![formula](https://render.githubusercontent.com/render/math?math=\p_i) represents the probability that the next transition will be from j to i where ![formula](https://render.githubusercontent.com/render/math?math=\P_\ij) is the **conditional probability** of going to point_i if the random walker is at j, and ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij) is the unconditional probability that the next step will be a transition to i from j. 
 
 
 
