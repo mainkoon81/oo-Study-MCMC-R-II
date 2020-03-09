@@ -307,6 +307,8 @@ Consider a random process that selects points in the model space. If the probabi
 
 The sampling methods is the random walks. The **possible paths** of a random walk define a graph in the model space. It obeys some probabilistic rules that allow it to jump from one model to a connected model in each step. This will, asymptotically, have some probability: ![formula](https://render.githubusercontent.com/render/math?math=p_i) to be `at` **point_i** `at` a **given step**. The neighborhood of given model is defined as the models to which a random walker can go in one step, if it starts at the given model. We say it's the transitional probability ![formula](https://render.githubusercontent.com/render/math?math=p_\ij) for the random walker to go to **point_i** if it currently is at the neighboring **point_j**, and ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\p_\ij)=![formula](https://render.githubusercontent.com/render/math?math=p_1\j)+![formula](https://render.githubusercontent.com/render/math?math=p_2\j)+...=1. 
 
+Let's say there is a probability ![formula](https://render.githubusercontent.com/render/math?math=q_i) that the random walk is initiated at **point_i**. Then, when the number of steps tends to infinity, the probability that the random walker is at **point_i** will converge to some other probability **"![formula](https://render.githubusercontent.com/render/math?math=\p_i)"** which is an equilibrium distribution of {"![formula](https://render.githubusercontent.com/render/math?math=\P_\ij)"}...so ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\P_\ij\p_i=\p_i)   
+
 
 
 
