@@ -305,8 +305,7 @@ __Q.__ Given a set of points in the model space, with a probability ![formula](h
 
 Consider a random process that selects points in the model space. If the probability of selecting **point_i** is ![formula](https://render.githubusercontent.com/render/math?math=p_i), then the points(![formula](https://render.githubusercontent.com/render/math?math=m_i)) selected by the process are called **"samples"** of the probability distribution {![formula](https://render.githubusercontent.com/render/math?math=p_i)}. 
 
-
-
+The sampling methods is the random walks. The **possible paths** of a random walk define a graph in the model space. It obeys some probabilistic rules that allow it to jump from one model to a connected model in each step. This will, asymptotically, have some probability: ![formula](https://render.githubusercontent.com/render/math?math=p_i) to be `at` **point_i** `at` a **given step**. The neighborhood of given model is defined as the models to which a random walker can go in one step, if it starts at the given model. We say it's the transitional probability ![formula](https://render.githubusercontent.com/render/math?math=p_\ij) for the random walker to go to **point_i** if it currently is at the neighboring **point_j**, and ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\p_\ij)=![formula](https://render.githubusercontent.com/render/math?math=p_1\j)+![formula](https://render.githubusercontent.com/render/math?math=p_2\j)+...=1. 
 
 
 
