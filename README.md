@@ -330,9 +330,11 @@ This modification rule, reminiscent of the Metropolis algorithm, is not the only
 ### [Decision_2] Use Data-Noise Distribution
 Let us consider the case of i.i.d Gaussian uncertainties. Then the likelihood function describing the experimental uncertainties degenerates into: <img src="https://user-images.githubusercontent.com/31917400/76240374-0843d380-622b-11ea-9c14-19aeb870163e.jpg" /> The acceptance probability for a perturbed model becomes in this case: <img src="https://user-images.githubusercontent.com/31917400/76240889-e7c84900-622b-11ea-96d5-b12bd6fc593d.jpg" />
 
+### note
+Having a random walk that samples the prior does not imply that we have a math expression that allows us to calculate the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) of any model ![formula](https://render.githubusercontent.com/render/math?math=\m_i). Of course, using the random walk that samples the prior and making the histograms of the models selected would be a numerical way of obtaining the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i).  
 
-
-
+### How to start with the prior?
+If, for some reason, we are not able to directly design a random walk that samples the prior, but we have an expression that gives the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for any model ![formula](https://render.githubusercontent.com/render/math?math=m_i), we can, for instance, start a random walk that samples the model space with uniform probability! Using the Metropolis rules given above but replacing the likelihood values ![formula](https://render.githubusercontent.com/render/math?math=L_i) by the prior probabilities ![formula](https://render.githubusercontent.com/render/math?math=\rho_i), we will obviously produce a random walk that samples the prior (the product of a **constant** times **![formula](https://render.githubusercontent.com/render/math?math=\rho_i)** equals **![formula](https://render.githubusercontent.com/render/math?math=\rho_i)**). Then, in cascade, we can use the Metropolis rule, with the likelihood values ![formula](https://render.githubusercontent.com/render/math?math=L_i), to modify this random walk into a random walk that samples the **posterior**. so... ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i) = const x ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) x ![formula](https://render.githubusercontent.com/render/math?math=L_i)  
 
 
 
