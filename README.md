@@ -336,9 +336,18 @@ Having a random walk that samples the prior does not imply that we have a math e
 ### How to start with the prior?
 If, for some reason, we are not able to directly design a random walk that samples the prior, but we have an expression that gives the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for any model ![formula](https://render.githubusercontent.com/render/math?math=m_i), we can, for instance, start a random walk that samples the model space with uniform probability! Using the Metropolis rules given above but replacing the likelihood values ![formula](https://render.githubusercontent.com/render/math?math=L_i) by the prior probabilities ![formula](https://render.githubusercontent.com/render/math?math=\rho_i), we will obviously produce a random walk that samples the prior (the product of a **constant** times **![formula](https://render.githubusercontent.com/render/math?math=\rho_i)** equals **![formula](https://render.githubusercontent.com/render/math?math=\rho_i)**). Then, in cascade, we can use the Metropolis rule, with the likelihood values ![formula](https://render.githubusercontent.com/render/math?math=L_i), to modify this random walk into a random walk that samples the **posterior**. so... ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i) = const x ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) x ![formula](https://render.githubusercontent.com/render/math?math=L_i)  
 
- We are able to sample the a priori probability density `ρ(m)`? There are two ways of defining the a priori probability distribution:
-  - 1. By deﬁning a (pseudo) random process (i.e., a set, of pseudo random rules) whose output is models assumed to represent pseudo random realizations of `ρ(m)` 
-  - 2. By explicitly giving a formula for the a priori probability density `ρ(m)` 
+We are able to **sample the a priori probability density `ρ(m)`**? There are two ways of defining the a priori probability distribution:
+  - (1) By defining a (pseudo) random process (i.e., a set of pseudo random rules) whose output is models assumed to represent pseudo random realizations of `ρ(m)`
+    - Let's say...the Layer thickness follows `Exp(λ)`, and mass densities in the layers follow `Log(x) ~ N(μ,σ2)`. We can decide to generate one-dimensional Earth models for mass density by the following random walk in the model space: In each iteration,
+      - 1. Select a layer uniformly at random
+      - 2. Choose a new value for the layer thickness according to the exponential distribution
+      - 3. Choose a value for the mass density inside the layer, according to the log-normal distribution
+    - If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),ρ(z2),...} will have some probability distribution (representing our a priori knowledge) for the parameters {ρ(z1),ρ(z2),...} which we may not need to characterize explicitly.
+    - In this example, the pseudo random procedure produces, by its very definition, samples m1,m2,... the a priori probability density ρ(m). These samples will be the input to the Metropolis decision rule.
+  
+  - (2) By explicitly giving a formula for the a priori probability density `ρ(m)`
+    - We may choose the probability density: <img src="https://user-images.githubusercontent.com/31917400/76333067-02142c80-62e9-11ea-982b-75fde0f26607.jpg" />
+    - In this example, where we only have an expression for `ρ(m)` , we have to generate samples from this distribution. This can be done in many different ways. One way is to start with a na¨ıve walk and then use the Metropolis rule to modify it, in order to sample the prior distribution `ρ(m)`.  
 
 
 
