@@ -258,11 +258,21 @@ Inverse MonteCarlo does Sampling `discrete models` in a **uniform random fashion
 ?? Once a collection of models sampled according to the **posterior** is available, it is possible to estimate `not only posterior model parameter covariances, but also resolution measures`(The resolution analysis may also provide new insight into problems that are usually treated by means of analytical methods).
 <img src="https://user-images.githubusercontent.com/31917400/76413321-1dd10e80-638d-11ea-895b-33e64e7caa54.jpg" />
 
-It has some advantanges like: 
+> It has some advantanges like: 
  - It can avoid all assumptions (such as linearity between the observables and the unknowns representing the model upon which most previous techniques relied).
  - A measure of uniqueness of the solutions would be obtained by **examining the degree** to which the successful models agreed or disagreed. 
 
 > One problem was that it is never known whether sufficient number of models had been tested. It was always possible that acceptable models may exist that bear no resemblance to the satisfactory models obtained. 
+
+We want the model solutions are sampled at a rate proportional to their a **posteriori probabilities**, that is, **`models` consistent with a "priori information" as well as "observations" are picked most often**, whereas models that are in incompatible with either a priori information or observations (or both) are rarely sampled. 
+
+our sampling algorithm can be described as consisting of two components: 
+ - The first component **generates** a `priori models`, that is, models sampled with a frequency distribution equal to the a priori distribution in the model space. This is accomplished by means of a random walk. This step may consist of a large number of mutually dependent sub-processes, each of which generates part of the a priori models. 
+ - The second component **accepts or rejects** attempted moves of the a `priori random walk` with probabilities that depend on the models ability to reproduce observations. 
+
+> In this algorithm, the a priori distribution need not be given by an explicit formula. 
+
+The definition of which models are accessible from a given model is an essential ingredient of the method. We will “jump” from a model to a neighboring model. Output from the combined algorithm consists of a `collection of models`. This collection of models is shown to have a frequency distribution that is (asymptotically) proportional to the a **posteriori** distribution in the model space???? 
 
 ## But how to build the prior metagram?
 
@@ -278,20 +288,6 @@ The peaks of the **prior distribution** are typically much less pronounced than 
 
 > One of the problems is that it requires an explicit formula for the a **priori distribution**! 
 
-### New sampling approach
-We want the model solutions are sampled at a rate proportional to their a **posteriori probabilities**, that is, **`models` consistent with a "priori information" as well as "observations" are picked most often**, whereas models that are in incompatible with either a priori information or observations (or both) are rarely sampled. 
-
-our sampling algorithm can be described as consisting of two components: 
- - The first component **generates** a `priori models`, that is, models sampled with a frequency distribution equal to the a priori distribution in the model space. This is accomplished by means of a random walk. This step may consist of a large number of mutually dependent sub-processes, each of which generates part of the a priori models. 
-
- - The second component **accepts or rejects** attempted moves of the a `priori random walk` with probabilities that depend on the models ability to reproduce observations. 
-
-> In this algorithm, the a priori distribution need not be given by an explicit formula. 
-
-The definition of which models are accessible from a given model is an essential ingredient of the method. We will “jump” from a model to a neighboring model. 
-
-Output from the combined algorithm consists of a `collection of models`. This collection of models is shown to have a frequency distribution that is (asymptotically) proportional to the a **posteriori** distribution in the model space???? 
- 
  
 ### Model parameters taking continuous values
 In the inverse problem, the actual values of the model parameter can be underdetermined, due to lack of **significant data** or due to **`experimental uncertainties`**. It can also be overdetermined, if we repeat similar measurements. A better question would have been: **What information can we infer on the actual value of the model parameter vector m**? The Bayesian approach to inverse problems, describes the **`a priori information`**. We may have on the model vector m, by a **priori** density `ρ(m)`. We have the likelihood. As an example, when we describe experimental results(obv) `L(m)` by a vector of observed values ![formula](https://render.githubusercontent.com/render/math?math=d_\obv) with **`Gaussian experimental uncertainties`** described by a **covariance matrix `C`**, <img src="https://user-images.githubusercontent.com/31917400/76145629-05a67a00-6083-11ea-992b-91f52fa67db2.jpg" /> But how to introduce realistic a **priori** information in the model space? 
