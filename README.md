@@ -228,11 +228,11 @@ MonteCarlo methods can be divided into two groups????
  
 ------------------------------------------------------------------------------------------------------
 # Inverse Problem 
- - <Forward relation: find posterior -> obtain predictive> Let's say we know the position of particles(we know model parameters: `source`). This makes it easy to predict the collective behaviour of the particles(we can predict obv: `output`)
+ - <Forward relation: posterior -> obtain predictive> Let's say we know the position of particles(we know model parameters: `source`). This makes it easy to predict the collective behaviour of the particles(we can predict obv: `output`)
    - forward: Mapping from the model space M into the **data space D**
      - ![formula](https://render.githubusercontent.com/render/math?math=d_\predict=g(m))
  
- - <Backward relation: find predictive -> obtain posterior ?> However, even though we know the particles' collective behavior(we know obv: `output`), it's not to say we always understand the position of particles(we can't understand model parameters: `source`)!
+ - <Backward relation: predictive -> obtain posterior ?> However, even though we know the particles' collective behavior(we know obv: `output`), it's not to say we always understand the position of particles(we can't understand model parameters: `source`)!
    - Backward: Mapping from the Data space D into the **model space M**
      - ![formula](https://render.githubusercontent.com/render/math?math=d_\obv=g(m))  
 
