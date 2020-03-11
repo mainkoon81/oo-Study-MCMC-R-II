@@ -264,6 +264,8 @@ It has some advantanges like:
 
 > One problem was that it is never known whether sufficient number of models had been tested. It was always possible that acceptable models may exist that bear no resemblance to the satisfactory models obtained. 
 
+## But how to build the metagram?
+
 ### What's the matter?
  - **σ(m)** represents our a posteriori information, deduced from `σ(m)` = k*`ρ(m)`*`L(m)`
    - **ρ(m)** represents our a priori information on models
