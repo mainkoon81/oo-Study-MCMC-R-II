@@ -305,7 +305,22 @@ If this is the case...
 > ### First sample the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) then we will modify this sampling procedure in such a way that the probability ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i) is eventually sampled (One never creates a probability ex-nihilo(out of nothing) but rather modifies some prior into a posterior).
 
 ### Sampling probabilities
-__Q.__ Given a set of points in the model space, with a probability ![formula](https://render.githubusercontent.com/render/math?math=p_i) attached to every ![formula](https://render.githubusercontent.com/render/math?math=m_i), how can we deﬁne random rules to select points such that the probability of selecting point ![formula](https://render.githubusercontent.com/render/math?math=m_i) is ![formula](https://render.githubusercontent.com/render/math?math=p_i) ?
+__Q.__ Given a set of points in the model space, with a probability ![formula](https://render.githubusercontent.com/render/math?math=p_i) attached to every ![formula](https://render.githubusercontent.com/render/math?math=m_i), how can we define random rules to select points such that the probability of selecting point ![formula](https://render.githubusercontent.com/render/math?math=m_i) is ![formula](https://render.githubusercontent.com/render/math?math=p_i) ?
+
+__Equilibrium__ The design of a random walk that equilibrates at a desired distribution {![formula](https://render.githubusercontent.com/render/math?math=p_i)} can be formulated as the design of an equilibrium flow having a throughput of ![formula](https://render.githubusercontent.com/render/math?math=p_i) particles at point_i.  
+
+See ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\P_\ij\p_i). 
+
+ - ![formula](https://render.githubusercontent.com/render/math?math=\P_\ij\p_i) is the probability that the next transition will be from j to i where ![formula](https://render.githubusercontent.com/render/math?math=\P_\ij) is the **conditional probability** of going to point_i if the random walker is at j. 
+ - ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij) is the **unconditional probability** that the next step will be a transition to i from j 
+
+It is a "flow" as it can be interpreted as the number of particles going to point_i from point_j in a single step((The flow corresponding to an equilibrated random walk has the property that the number of particles ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\p_i) at point_i is constant in time). Thus that a random walk has equilibrated at a distribution ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\p_i) means that in each step, the total flow into a given point is equal to the total flow out from the point. And the flow has the property that the total flow out from point_i and hence the total flow into the another point must equal: ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\f_\ij=\Sigma\f_\ki=\p_i)   
+
+
+
+
+
+--------------------------
 
 Consider a random process that selects points in the model space. If the probability of selecting **point_i** is ![formula](https://render.githubusercontent.com/render/math?math=p_i), then the points(![formula](https://render.githubusercontent.com/render/math?math=m_i)) selected by the process are called **"samples"** of the probability distribution {![formula](https://render.githubusercontent.com/render/math?math=p_i)}. 
 
@@ -315,14 +330,16 @@ Let's say there is a probability ![formula](https://render.githubusercontent.com
 
 Instead of letting ![formula](https://render.githubusercontent.com/render/math?math=\p_i) represent the probability that a (single) random walker is at **point_i**, we can let ![formula](https://render.githubusercontent.com/render/math?math=\p_i) be the number of "particles" at **point_i**. Then ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\p_i) represents the "total number of particles"...and not 1.
 
-The concept of `flow` is important for designing rules that sample probabilities. 
 
-See ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\P_\ij\p_i). 
 
- - ![formula](https://render.githubusercontent.com/render/math?math=\P_\ij\p_i) is the probability that the next transition will be from j to i where ![formula](https://render.githubusercontent.com/render/math?math=\P_\ij) is the **conditional probability** of going to point_i if the random walker is at j. 
- - ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij) is the **unconditional probability** that the next step will be a transition to i from j 
 
-It is a "flow" as it can be interpreted as the number of particles going to point_i from point_j in a single step((The flow corresponding to an equilibrated random walk has the property that the number of particles ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\p_i) at point_i is constant in time). Thus that a random walk has equilibrated at a distribution ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\p_i) means that in each step, the total flow into a given point is equal to the total flow out from the point. And the flow has the property that the total flow out from point_i and hence the total flow into the another point must equal: ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\f_\ij=\Sigma\f_\ki=\p_i)   
+
+
+
+
+
+
+
 
 ### How to start with the prior?
 Having a random walk that samples the prior does not imply that we have a math expression that allows us to calculate the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) of any model ![formula](https://render.githubusercontent.com/render/math?math=\m_i). Of course, using the random walk that samples the prior and making the histograms of the models selected would be a numerical way of obtaining the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i).  
