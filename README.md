@@ -305,12 +305,11 @@ If this is the case...
 > ### First sample the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) then we will modify this sampling procedure in such a way that the probability ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i) is eventually sampled (One never creates a probability ex-nihilo(out of nothing) but rather modifies some prior into a posterior).
 
 ### Sampling probabilities
-__Q.__ Given a set of points in the model space, with a probability ![formula](https://render.githubusercontent.com/render/math?math=p_i) attached to every ![formula](https://render.githubusercontent.com/render/math?math=m_i), how can we define random rules to select points such that the probability of selecting point ![formula](https://render.githubusercontent.com/render/math?math=m_i) is ![formula](https://render.githubusercontent.com/render/math?math=p_i) ?
+__Q.__ Given a set of points in the model space, with a probability ![formula](https://render.githubusercontent.com/render/math?math=p_i) attached to every ![formula](https://render.githubusercontent.com/render/math?math=m_i), how can we define random rules to select points such that the probability of selecting point ![formula](https://render.githubusercontent.com/render/math?math=m_i) is ![formula](https://render.githubusercontent.com/render/math?math=\p_i) ?
 
-__Equilibrium__ The design of a random walk that equilibrates at a desired distribution {![formula](https://render.githubusercontent.com/render/math?math=p_i)} can be formulated as the design of an equilibrium flow having a throughput of ![formula](https://render.githubusercontent.com/render/math?math=p_i) particles at point_i.  
+__Equilibrium:__ The design of a random walk that equilibrates at a desired distribution {![formula](https://render.githubusercontent.com/render/math?math=\p_i)} can be formulated as the design of an equilibrium flow having a throughput of ![formula](https://render.githubusercontent.com/render/math?math=\p_i) particles at point_i. The simplest equilibrium flows are symmetric: ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\f_\ji) 
 
-See ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\P_\ij\p_i). 
-
+See this flow: ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\P_\ij\p_i). 
  - ![formula](https://render.githubusercontent.com/render/math?math=\P_\ij\p_i) is the probability that the next transition will be from j to i where ![formula](https://render.githubusercontent.com/render/math?math=\P_\ij) is the **conditional probability** of going to point_i if the random walker is at j. 
  - ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij) is the **unconditional probability** that the next step will be a transition to i from j 
 
