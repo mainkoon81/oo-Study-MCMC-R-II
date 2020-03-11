@@ -256,7 +256,7 @@ This is the case for many highly **nonlinear problems**, where the forward relat
 Inverse MonteCarlo does Sampling `discrete models` in a **uniform random fashion** between pairs of upper and lower bounds, **which were chosen a priori**. Each generated model was tested for `its fit to the available data` and then accepted or rejected (based on data-model relation & data-noise distribution..which means **probabilities**(L1/L2) that depend on the models ability to reproduce observations). We can map out a region of acceptable models in parameter space. This was done by deterministically **sampling all models** in the vicinity(neighbouring parameters) of an acceptable model(candidate parameters), which had previously been determined by IMC. The whole process could then be repeated many times over(so keep generating different metagrams!). 
 
 Once a collection of models sampled according to the **posterior** is available, it is possible to estimate `not only posterior model parameter covariances, but also resolution measures`(The resolution analysis may also provide new insight into problems that are usually treated by means of analytical methods).
-<img src="https://user-images.githubusercontent.com/31917400/75927793-f77b1280-5e64-11ea-978a-c0d91b7f9499.jpg" />
+<img src="https://user-images.githubusercontent.com/31917400/76413321-1dd10e80-638d-11ea-895b-33e64e7caa54.jpg" />
 
 It has some advantanges like: 
  - It can avoid all assumptions (such as linearity between the observables and the unknowns representing the model upon which most previous techniques relied).
