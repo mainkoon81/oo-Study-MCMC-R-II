@@ -269,12 +269,9 @@ We want the model solutions are sampled at a rate proportional to their a **post
 our sampling algorithm can be described as consisting of two components: 
  - The first component **generates** a `priori models`, that is, models sampled with a frequency distribution equal to the a priori distribution in the model space. This is accomplished by means of a random walk. This step may consist of a large number of mutually dependent sub-processes, each of which generates part of the a priori models. 
  - The second component **accepts or rejects** attempted moves of the a `priori random walk` with probabilities that depend on the models ability to reproduce observations. 
-
 > In this algorithm, the a priori distribution need not be given by an explicit formula. 
 
-The definition of which models are accessible from a given model is an essential ingredient of the method. We will “jump” from a model to a neighboring model. Output from the combined algorithm consists of a `collection of models`. This collection of models is shown to have a frequency distribution that is (asymptotically) proportional to the a **posteriori** distribution in the model space???? 
-
-## But how to build the prior metagram?
+## OK, but how to build the prior metagram?
 
 ### What's the matter?
  - **σ(m)** represents our a posteriori information, deduced from `σ(m)` = k*`ρ(m)`*`L(m)`
