@@ -304,11 +304,14 @@ It is a "flow" as it can be interpreted as the number of particles going to poin
 
 
 __[D] Tools to obtain Prior__
- - __Naive Walks:__ Every edge gives equal probability.
-   - 
+ - __Naive Walks:
+   - Every edge gives equal probability.
+   - All points ![formula](https://render.githubusercontent.com/render/math?math=\m_i) have a probability proportional to their own number of neighbors(edges).
+   - ![formula](https://render.githubusercontent.com/render/math?math=\p_i=\n_i/\Sigma\n_j) where ![formula](https://render.githubusercontent.com/render/math?math=\n_i) is the number of neighbors of ![formula](https://render.githubusercontent.com/render/math?math=\m_i) (including the point ![formula](https://render.githubusercontent.com/render/math?math=\m_i) itself), `i` is a selected neighbor(chosen uniformly), `j` is selected + unselected other neighbors. 
+
  
  
- 
+  
  
  
  
