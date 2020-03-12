@@ -276,11 +276,11 @@ So...We want the model solutions are sampled at a rate proportional to their a *
 
 
 ### Part 01. Probabilistic Formulation
-__A. Model parameters taking continuous values and prior__
+__[A] Model parameters taking continuous values and prior__
 
 The prior knowledge is important! In the inverse problem, the actual values of the model parameter can be underdetermined, due to lack of **significant data** or due to **`experimental uncertainties`**...so many noise. It can also be overdetermined, if we repeat similar measurements. A better question would have been: **What information can we infer on the actual value of the model parameter vector m**? The Bayesian approach to inverse problems, describes the necessity of **`a priori information`**. We may have on the model vector m, by a **priori** density `ρ(m)`. As an example, when we describe experimental results(obv) `L(m)` by a vector of observed values ![formula](https://render.githubusercontent.com/render/math?math=d_\obv) with **`Gaussian experimental uncertainties`** described by a **covariance matrix `C`**, <img src="https://user-images.githubusercontent.com/31917400/76145629-05a67a00-6083-11ea-992b-91f52fa67db2.jpg" /> But how to introduce realistic a **priori** information in this model space? 
 
-__B. Model parameter discretization and prior__
+__[B] Model parameter discretization and prior__
 
 If ![formula](https://render.githubusercontent.com/render/math?math=m_i) is continuous, f(![formula](https://render.githubusercontent.com/render/math?math=m_i)) is a density, thus we can say the probability defined for a region of the space is: <img src="https://user-images.githubusercontent.com/31917400/76164915-854b4c00-614a-11ea-8af6-fb0af773d3a4.jpg" /> For numerical computations, we discretize the space by defining a grid of points, where each point represents a surrounding region ∆![formula](https://render.githubusercontent.com/render/math?math=m_a), ∆![formula](https://render.githubusercontent.com/render/math?math=m_b),....small enough for the probability densities under consideration to be almost constant inside it. Then, we say **P(![formula](https://render.githubusercontent.com/render/math?math=m_i))** is "the probability of the region ∆![formula](https://render.githubusercontent.com/render/math?math=m_a), ∆![formula](https://render.githubusercontent.com/render/math?math=m_b)... surrounding the point ![formula](https://render.githubusercontent.com/render/math?math=m_i)". In the limit of an infinitely dense grid and assuming a continuous f(m) , "the probability of the point ![formula](https://render.githubusercontent.com/render/math?math=m_i)" tends to ![formula](https://render.githubusercontent.com/render/math?math=f_i=f(m_i))∆![formula](https://render.githubusercontent.com/render/math?math=m_a)∆![formula](https://render.githubusercontent.com/render/math?math=m_b)...
 If this is the case...
@@ -288,9 +288,9 @@ If this is the case...
 
 > ### First sample the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) then we will modify this sampling procedure in such a way that the probability ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i) is eventually sampled (One never creates a probability ex-nihilo(out of nothing) but rather modifies some prior into a posterior).
 
-__C. Designing an Equilibrium distribution of ![formula](https://render.githubusercontent.com/render/math?math=\p_i) and prior__
+__[C] Designing an Equilibrium distribution of ![formula](https://render.githubusercontent.com/render/math?math=\p_i) and prior__
 
-[Question]: Given a set of points in the model space, with a probability ![formula](https://render.githubusercontent.com/render/math?math=\p_i) attached to every ![formula](https://render.githubusercontent.com/render/math?math=m_i), how can we define random rules to select points such that the probability of selecting point ![formula](https://render.githubusercontent.com/render/math?math=m_i) is ![formula](https://render.githubusercontent.com/render/math?math=\p_i) ?
+[Question]: Given a set of points in the model space, with a probability ![formula](https://render.githubusercontent.com/render/math?math=\p_i) attached to every ![formula](https://render.githubusercontent.com/render/math?math=m_i), how can we define random rules to select points such that the probability of selecting point ![formula](https://render.githubusercontent.com/render/math?math=m_i) is ![formula](https://render.githubusercontent.com/render/math?math=\p_i)? How to obtain the prior("support":![formula](https://render.githubusercontent.com/render/math?math=m_i), "frequency":![formula](https://render.githubusercontent.com/render/math?math=\p_i))?
 
 [Equilibrium]: The design of a random walk that equilibrates at a desired distribution {![formula](https://render.githubusercontent.com/render/math?math=\p_i)} can be formulated as the design of an equilibrium flow having a throughput of ![formula](https://render.githubusercontent.com/render/math?math=\p_i) particles at point_i. The simplest equilibrium flows are symmetric: ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\f_\ji) 
 
@@ -310,7 +310,7 @@ Let's say there is a probability ![formula](https://render.githubusercontent.com
 Instead of letting ![formula](https://render.githubusercontent.com/render/math?math=\p_i) represent the probability that a (single) random walker is at **point_i**, we can let ![formula](https://render.githubusercontent.com/render/math?math=\p_i) be the number of "particles" at **point_i**. Then ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\p_i) represents the "total number of particles"...and not 1.
 
 
-__D. Tools
+__[D] Tools__
 
  - Naive Walks
  
