@@ -302,7 +302,6 @@ __[C] Designing an Equilibrium distribution of ![formula](https://render.githubu
 
 It is a "flow" as it can be interpreted as the number of particles going to point_i from point_j in a single step((The flow corresponding to an equilibrated random walk has the property that the number of particles ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\p_i) at point_i is constant in time). Thus that a random walk has equilibrated at a distribution ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\p_i) means that in each step, the total flow into a given point is equal to the total flow out from the point. And the flow has the property that the total flow out from point_i and hence the total flow into the another point must equal: ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\f_\ij=\Sigma\f_\ki=\p_i)   
 
-
 __[D] Journey to obtain Prior__
  - __Naive Walks:__ `Neighbor-size matters`: "initial probabilities"
    - Every edge gives equal probability rule: ![formula](https://render.githubusercontent.com/render/math?math=\p_\ji=1/\n_i) and ![formula](https://render.githubusercontent.com/render/math?math=\p_\ij=1/\n_j).
@@ -314,21 +313,11 @@ __[D] Journey to obtain Prior__
    - if the "new" point has less neighbors than the "old" point (or the same number), then always accept the move to the "new" point!
    - if the "new" point has more neighbors than the "old" point, then make a random decision to move to the "new", or to stay at the "old", with the probability `alpha` = ![formula](https://render.githubusercontent.com/render/math?math=\n_j/\n_i)
    - ...`old/new` is big? then accept the move. `old/new` is small? then reject the move. 
-   - This iteration will reach to the equilibrium (with all points ![formula](https://render.githubusercontent.com/render/math?math=m_i) having the same probability??)
- 
- - __Modification of Random Walks:__  
- 
-
-
-
-
-
-
+   - This iteration will equilibrate the probability distribution (with all points ![formula](https://render.githubusercontent.com/render/math?math=m_i) having the same probability??)
 
 
 ### Part 02. Prior Sampling
-
-### How to start with the prior?
+__How to start with the prior?__
 Having a random walk that samples the prior does not imply that we have a math expression that allows us to calculate the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) of any model ![formula](https://render.githubusercontent.com/render/math?math=\m_i). Of course, using the random walk that samples the prior and making the histograms of the models selected would be a numerical way of obtaining the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i).  
 
 If, for some reason, we are not able to directly design a random walk that samples the prior, but we have an expression that gives the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for any model ![formula](https://render.githubusercontent.com/render/math?math=\m_i), we can, for instance, start a random walk that samples the model space with uniform probability! Using the Metropolis rules but replacing the likelihood values ![formula](https://render.githubusercontent.com/render/math?math=\L_i) by the prior probabilities ![formula](https://render.githubusercontent.com/render/math?math=\rho_i), we will produce a random walk that samples the prior (the product of a **constant** times **![formula](https://render.githubusercontent.com/render/math?math=\rho_i)** equals **![formula](https://render.githubusercontent.com/render/math?math=\rho_i)**). Then, in cascade, we can use the Metropolis rule again, with the likelihood values ![formula](https://render.githubusercontent.com/render/math?math=\L_i), to modify this random walk into a random walk that samples the **posterior**. so... ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i) = const x ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) x ![formula](https://render.githubusercontent.com/render/math?math=L_i)  
