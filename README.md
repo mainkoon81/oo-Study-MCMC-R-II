@@ -276,11 +276,11 @@ So...We want the model solutions are sampled at a rate proportional to their a *
 
 
 ### Part 01. Probabilistic Formulation
-__[A] Model parameters taking continuous values and prior__
+__[A] Model parameters taking continuous values and Prior__
 
 The prior knowledge is important! In the inverse problem, the actual values of the model parameter can be underdetermined, due to lack of **significant data** or due to **`experimental uncertainties`**...so many noise. It can also be overdetermined, if we repeat similar measurements. A better question would have been: **What information can we infer on the actual value of the model parameter vector m**? The Bayesian approach to inverse problems, describes the necessity of **`a priori information`**. We may have on the model vector m, by a **priori** density `ρ(m)`. As an example, when we describe experimental results(obv) `L(m)` by a vector of observed values ![formula](https://render.githubusercontent.com/render/math?math=d_\obv) with **`Gaussian experimental uncertainties`** described by a **covariance matrix `C`**, <img src="https://user-images.githubusercontent.com/31917400/76145629-05a67a00-6083-11ea-992b-91f52fa67db2.jpg" /> But how to introduce realistic a **priori** information in this model space? 
 
-__[B] Model parameter discretization and prior__
+__[B] Model parameter discretization and Prior__
 
 If ![formula](https://render.githubusercontent.com/render/math?math=m_i) is continuous, f(![formula](https://render.githubusercontent.com/render/math?math=m_i)) is a density, thus we can say the probability defined for a region of the space is: <img src="https://user-images.githubusercontent.com/31917400/76164915-854b4c00-614a-11ea-8af6-fb0af773d3a4.jpg" /> For numerical computations, we discretize the space by defining a grid of points, where each point represents a surrounding region ∆![formula](https://render.githubusercontent.com/render/math?math=m_a), ∆![formula](https://render.githubusercontent.com/render/math?math=m_b),....small enough for the probability densities under consideration to be almost constant inside it. Then, we say **P(![formula](https://render.githubusercontent.com/render/math?math=m_i))** is "the probability of the region ∆![formula](https://render.githubusercontent.com/render/math?math=m_a), ∆![formula](https://render.githubusercontent.com/render/math?math=m_b)... surrounding the point ![formula](https://render.githubusercontent.com/render/math?math=m_i)". In the limit of an infinitely dense grid and assuming a continuous f(m) , "the probability of the point ![formula](https://render.githubusercontent.com/render/math?math=m_i)" tends to ![formula](https://render.githubusercontent.com/render/math?math=f_i=f(m_i))∆![formula](https://render.githubusercontent.com/render/math?math=m_a)∆![formula](https://render.githubusercontent.com/render/math?math=m_b)...
 If this is the case...
@@ -288,7 +288,7 @@ If this is the case...
 
 > ### First sample the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) then we will modify this sampling procedure in such a way that the probability ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i) is eventually sampled (One never creates a probability ex-nihilo(out of nothing) but rather modifies some prior into a posterior).
 
-__[C] Designing an Equilibrium distribution of ![formula](https://render.githubusercontent.com/render/math?math=\p_i) and prior__
+__[C] Designing an Equilibrium distribution of ![formula](https://render.githubusercontent.com/render/math?math=\p_i) and Prior__
 
 **Question:** 
  - Given a set of points in the model space, with a probability ![formula](https://render.githubusercontent.com/render/math?math=\p_i) attached to every ![formula](https://render.githubusercontent.com/render/math?math=m_i), how can we define random rules to select points such that the probability of selecting point ![formula](https://render.githubusercontent.com/render/math?math=m_i) is ![formula](https://render.githubusercontent.com/render/math?math=\p_i)? **How to obtain the prior("support":![formula](https://render.githubusercontent.com/render/math?math=m_i), "frequency":![formula](https://render.githubusercontent.com/render/math?math=\p_i))?**
@@ -303,9 +303,14 @@ __[C] Designing an Equilibrium distribution of ![formula](https://render.githubu
 It is a "flow" as it can be interpreted as the number of particles going to point_i from point_j in a single step((The flow corresponding to an equilibrated random walk has the property that the number of particles ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\p_i) at point_i is constant in time). Thus that a random walk has equilibrated at a distribution ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\p_i) means that in each step, the total flow into a given point is equal to the total flow out from the point. And the flow has the property that the total flow out from point_i and hence the total flow into the another point must equal: ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\f_\ij=\Sigma\f_\ki=\p_i)   
 
 
-__[D] Tools__
-
- - Naive Walks
+__[D] Tools to obtain Prior__
+ - __Naive Walks:__ Every edge gives equal probability.
+   - 
+ 
+ 
+ 
+ 
+ 
  
  - Uniform Walks
  
