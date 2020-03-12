@@ -319,7 +319,7 @@ __[D] Journey to obtain Prior__
 ### Part 02. Prior Sampling
 If, for some reason, we are not able to directly design a random walk that samples the prior, but we have an expression that gives the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for any model ![formula](https://render.githubusercontent.com/render/math?math=\m_i), we can, for instance, start a random walk that samples the **`model space`**(metagram?) with **uniform probability**!  
 
-We are able to **sample the a priori probability density `ρ(m)`**? There are two ways of defining the a priori probability distribution:
+If we don't have the expression for the prior probability, we are able to **sample the a priori probability density `ρ(m)`**? There are two ways of defining the a priori probability distribution:
   - (1) By defining a (pseudo) random process (i.e., a set of pseudo random rules) whose output is models assumed to represent pseudo random realizations of `ρ(m)`
     - Let's say...the Layer thickness follows `Exp(λ)`, and mass densities in the layers follow `Log(x) ~ N(μ,σ2)`. We can decide to generate one-dimensional Earth models for mass density by the following random walk in the model space: In each iteration,
       - 1. Select a layer uniformly at random
