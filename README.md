@@ -261,39 +261,32 @@ IMC first does Sampling `discrete models` in a **uniform random fashion** betwee
  - It can avoid all assumptions (such as linearity between the observables and the unknowns representing the model upon which most previous techniques relied).
  - A measure of uniqueness of the solutions would be obtained by **examining the degree** to which the successful models agreed or disagreed. 
 
+### What's the matter?
+**σ(m)** represents our a posteriori information, deduced from `σ(m)` = k*`ρ(m)`*`L(m)`
+ - **ρ(m)** represents our a priori information on models
+ - **L(m)** represents our likelihood information as a measure of **degree of fit** between `data` predicted from models with `m` and `actual observed data`. Typically, this is done through the introduction of a **misfit function S(m)**, connected to **L(m)** through an expression: `L(m)` = k*exp(−`S(m)`) 
+> When analyzing **nonlinear inverse problems of high dimensionality**, it is necessary to severely restrict the number of **misfit calculations**. Of course, it maybe ideal that all model parameters within the considered model subspace are visited, but the task is computationally unfeasible when problems with **many model parameters** are considered. In this regards, `Monte Carlo Search`, which consists of a **random walk** in the model space, extensively samples the model space, avoids **entrapment in local maxima** by taking advantage of the fact that **all local maxima** are sampled. 
+
+One of the problems is that it requires an explicit formula for the a **priori distribution**! 
+
+## OK, then how to build the prior metagram?
 So...We want the model solutions are sampled at a rate proportional to their a **posteriori probabilities**, that is, **`models` consistent with a "priori information" as well as "observations" are picked most often**, whereas models that are in incompatible with either a priori information or observations (or both) are rarely sampled. The sampling algorithm can be described as consisting of two components: 
  - The first component **generates** a `priori models`, that is, models sampled with a frequency distribution equal to the a priori distribution in the model space. This is accomplished by means of a random walk. This step may consist of a large number of mutually dependent sub-processes, each of which generates part of the a priori models. 
- - The second component **accepts or rejects** attempted moves of the a `priori random walk` with probabilities that depend on the models ability to reproduce observations (Use your likelihood to examine). 
-
-## OK, but how to build the prior metagram?
+ - The second component **accepts or rejects** attempted moves of the a `priori random walk` with probabilities that depend on the models ability to reproduce observations (Use your likelihood to examine ?). 
 
 
 
 
 
-
-### What's the matter?
- - **σ(m)** represents our a posteriori information, deduced from `σ(m)` = k*`ρ(m)`*`L(m)`
-   - **ρ(m)** represents our a priori information on models
-   - **L(m)** represents our likelihood information as a measure of **degree of fit** between `data` predicted from models with `m` and `actual observed data`. Typically, this is done through the introduction of a **misfit function S(m)**, connected to **L(m)** through an expression: `L(m)` = k*exp(−`S(m)`) ???????
-
- - ???? When analyzing **nonlinear inverse problems of high dimensionality**, it is necessary to severely restrict the number of **misfit calculations**. Of course, it maybe ideal that all model parameters within the considered model subspace are visited, but the task is computationally unfeasible when problems with **many model parameters** are considered. In this regards, `Monte Carlo Search`, which consists of a **random walk** in the model space, extensively samples the model space, avoids **entrapment in local maxima** by taking advantage of the fact that **all local maxima** are sampled. 
- - ???? Let's say Random walks sample the posterior density `σ(m)`. However, in cases where `σ(m)` has narrow maxima, these maxima will be very sparsely sampled. In such cases, sampling of the model space can be improved by MC importance sampling by sampling the model space with a probability density as close to the **posterior** `σ(m)` as possible.  
-
-The peaks of the **prior distribution** are typically much less pronounced than the peaks of the **posterior distribution**. Moreover, the peaks of the two distributions may not even coincide. It would therefore be preferable to draw sample models from the model space according to a probability distribution close to the **posterior** `σ(m)`. Metropolis algorithm generates the **posteriors**, from which they computed model estimates. 
-
-> One of the problems is that it requires an explicit formula for the a **priori distribution**! 
-
-
-
-
-
-
- 
-### Model parameters taking continuous values
+### Part 01. Probabilistic Formulation
+__A. Model parameters taking continuous values__
 In the inverse problem, the actual values of the model parameter can be underdetermined, due to lack of **significant data** or due to **`experimental uncertainties`**. It can also be overdetermined, if we repeat similar measurements. A better question would have been: **What information can we infer on the actual value of the model parameter vector m**? The Bayesian approach to inverse problems, describes the **`a priori information`**. We may have on the model vector m, by a **priori** density `ρ(m)`. We have the likelihood. As an example, when we describe experimental results(obv) `L(m)` by a vector of observed values ![formula](https://render.githubusercontent.com/render/math?math=d_\obv) with **`Gaussian experimental uncertainties`** described by a **covariance matrix `C`**, <img src="https://user-images.githubusercontent.com/31917400/76145629-05a67a00-6083-11ea-992b-91f52fa67db2.jpg" /> But how to introduce realistic a **priori** information in the model space? 
 
-### Model parameter discretization
+
+
+
+
+__B. Model parameter discretization__
 If ![formula](https://render.githubusercontent.com/render/math?math=m_i) is continuous, f(![formula](https://render.githubusercontent.com/render/math?math=m_i)) is a density, thus we can say the probability defined for a region of the space is: <img src="https://user-images.githubusercontent.com/31917400/76164915-854b4c00-614a-11ea-8af6-fb0af773d3a4.jpg" /> For numerical computations, we discretize the space by defining a grid of points, where each point represents a surrounding region ∆![formula](https://render.githubusercontent.com/render/math?math=m_a), ∆![formula](https://render.githubusercontent.com/render/math?math=m_b),....small enough for the probability densities under consideration to be almost constant inside it. Then, we say **P(![formula](https://render.githubusercontent.com/render/math?math=m_i))** is "the probability of the region ∆![formula](https://render.githubusercontent.com/render/math?math=m_a), ∆![formula](https://render.githubusercontent.com/render/math?math=m_b)... surrounding the point ![formula](https://render.githubusercontent.com/render/math?math=m_i)". In the limit of an infinitely dense grid and assuming a continuous f(m) , "the probability of the point ![formula](https://render.githubusercontent.com/render/math?math=m_i)" tends to ![formula](https://render.githubusercontent.com/render/math?math=f_i=f(m_i))∆![formula](https://render.githubusercontent.com/render/math?math=m_a)∆![formula](https://render.githubusercontent.com/render/math?math=m_b)...
 
 If this is the case...
@@ -301,10 +294,14 @@ If this is the case...
 
 > ### First sample the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) then we will modify this sampling procedure in such a way that the probability ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i) is eventually sampled (One never creates a probability ex-nihilo(out of nothing) but rather modifies some prior into a posterior).
 
-### Designing an Equilibrium distribution ![formula](https://render.githubusercontent.com/render/math?math=\p_i)
-__Q.__ Given a set of points in the model space, with a probability ![formula](https://render.githubusercontent.com/render/math?math=p_i) attached to every ![formula](https://render.githubusercontent.com/render/math?math=m_i), how can we define random rules to select points such that the probability of selecting point ![formula](https://render.githubusercontent.com/render/math?math=m_i) is ![formula](https://render.githubusercontent.com/render/math?math=\p_i) ?
 
-__Equilibrium:__ The design of a random walk that equilibrates at a desired distribution {![formula](https://render.githubusercontent.com/render/math?math=\p_i)} can be formulated as the design of an equilibrium flow having a throughput of ![formula](https://render.githubusercontent.com/render/math?math=\p_i) particles at point_i. The simplest equilibrium flows are symmetric: ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\f_\ji) 
+
+
+
+__C. Designing an Equilibrium distribution__ ![formula](https://render.githubusercontent.com/render/math?math=\p_i)
+ - Q. Given a set of points in the model space, with a probability ![formula](https://render.githubusercontent.com/render/math?math=p_i) attached to every ![formula](https://render.githubusercontent.com/render/math?math=m_i), how can we define random rules to select points such that the probability of selecting point ![formula](https://render.githubusercontent.com/render/math?math=m_i) is ![formula](https://render.githubusercontent.com/render/math?math=\p_i) ?
+
+[Equilibrium]: The design of a random walk that equilibrates at a desired distribution {![formula](https://render.githubusercontent.com/render/math?math=\p_i)} can be formulated as the design of an equilibrium flow having a throughput of ![formula](https://render.githubusercontent.com/render/math?math=\p_i) particles at point_i. The simplest equilibrium flows are symmetric: ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\f_\ji) 
 
 See this flow: ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\P_\ij\p_i). 
  - ![formula](https://render.githubusercontent.com/render/math?math=\P_\ij\p_i) is the probability that the next transition will be from j to i where ![formula](https://render.githubusercontent.com/render/math?math=\P_\ij) is the **conditional probability** of going to point_i if the random walker is at j. 
@@ -336,6 +333,7 @@ Instead of letting ![formula](https://render.githubusercontent.com/render/math?m
 
 
 
+### Part 02. Prior Sampling
 
 ### How to start with the prior?
 Having a random walk that samples the prior does not imply that we have a math expression that allows us to calculate the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) of any model ![formula](https://render.githubusercontent.com/render/math?math=\m_i). Of course, using the random walk that samples the prior and making the histograms of the models selected would be a numerical way of obtaining the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i).  
@@ -355,8 +353,10 @@ We are able to **sample the a priori probability density `ρ(m)`**? There are tw
     - We may choose the probability density: <img src="https://user-images.githubusercontent.com/31917400/76333067-02142c80-62e9-11ea-982b-75fde0f26607.jpg" />
     - In this example, where we only have an expression for `ρ(m)` , we have to generate samples from this distribution. This can be done in many different ways. One way is to start with a na¨ıve walk and then use the Metropolis rule to modify it, in order to sample the prior distribution `ρ(m)`.  
 
-### Sampling the posteriors
- - __[Decision_1] Use Data & Model parameter relation (use your Likelihood)__ 
+
+
+### Part 03. Posterior Sampling
+- __[Decision_1] Use Data & Model parameter relation (use your Likelihood)__ 
    - Assume that some **random rules** are given that define a random walk having **prior** {![formula](https://render.githubusercontent.com/render/math?math=\rho_i)} as its equilibrium probability(unif or not). How can this rules be modified so that the **new random walk** converge at **posterior** {![formula](https://render.githubusercontent.com/render/math?math=\sigma_i)}? 
    - First, if that "proposed transition" i ← j was always accepted, then the random walker would sample the **prior probability**: {![formula](https://render.githubusercontent.com/render/math?math=\rho_i)}! 
    - Let us, however, instead of always accepting the proposed transition i ← j , sometimes thwart it by using the following rule to decide `if he is allowed to move to i` or `if he is forced to stay at j`: <img src="https://user-images.githubusercontent.com/31917400/76234932-4983b580-6222-11ea-80a1-e906d8122a8f.jpg" /> then the random walker will sample the **posterior probability** {![formula](https://render.githubusercontent.com/render/math?math=\sigma_i)}. This modification rule, reminiscent of the Metropolis algorithm, is not the only one possible.   
