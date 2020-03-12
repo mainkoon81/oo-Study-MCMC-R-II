@@ -314,6 +314,7 @@ __[D] Journey to obtain Prior__
    - if the "new" point has more neighbors than the "old" point, then make a random decision to move to the "new", or to stay at the "old", with the probability `alpha` = ![formula](https://render.githubusercontent.com/render/math?math=\n_j/\n_i)
    - ...`old/new` is big? then accept the move. `old/new` is small? then reject the move. 
    - This iteration will equilibrate the probability distribution (with all points ![formula](https://render.githubusercontent.com/render/math?math=m_i) having the same probability??)
+   - By making the histograms of the model parameters selected, we can obtain the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for every model ![formula](https://render.githubusercontent.com/render/math?math=\m_i).  
 
 
 ### Part 02. Prior Sampling
@@ -343,7 +344,7 @@ We are able to **sample the a priori probability density `ρ(m)`**? There are tw
    - First, if that "proposed transition" i ← j was always accepted, then the random walker would sample the **prior probability**: {![formula](https://render.githubusercontent.com/render/math?math=\rho_i)}! 
    - Let us, however, instead of always accepting the proposed transition i ← j , sometimes thwart it by using the following rule to decide `if he is allowed to move to i` or `if he is forced to stay at j`: <img src="https://user-images.githubusercontent.com/31917400/76234932-4983b580-6222-11ea-80a1-e906d8122a8f.jpg" /> then the random walker will sample the **posterior probability** {![formula](https://render.githubusercontent.com/render/math?math=\sigma_i)}. This modification rule, reminiscent of the Metropolis algorithm, is not the only one possible.   
   
- - __[Decision_2] Use Data-Noise Distribution__
+ - __[Decision_2] Use Data-Noise Distribution__ 
    - Let us consider the case of i.i.d Gaussian uncertainties. Then the likelihood function describing the experimental uncertainties degenerates into: <img src="https://user-images.githubusercontent.com/31917400/76240374-0843d380-622b-11ea-9c14-19aeb870163e.jpg" /> The acceptance probability for a perturbed model becomes in this case: <img src="https://user-images.githubusercontent.com/31917400/76240889-e7c84900-622b-11ea-96d5-b12bd6fc593d.jpg" />
 
 
