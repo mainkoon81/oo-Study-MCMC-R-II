@@ -261,7 +261,7 @@ IMC first does Sampling `discrete models` in a **uniform random fashion** betwee
  - It can avoid all assumptions (such as linearity between the observables and the unknowns representing the model upon which most previous techniques relied).
  - A measure of uniqueness of the solutions would be obtained by **examining the degree** to which the successful models agreed or disagreed. 
 
-### What's the matter?
+### What's the matter with the old researches?
 **σ(m)** represents our a posteriori information, deduced from `σ(m)` = k*`ρ(m)`*`L(m)`
  - **ρ(m)** represents our a priori information on models
  - **L(m)** represents our likelihood information as a measure of **degree of fit** between `data` predicted from models with `m` and `actual observed data`. Typically, this is done through the introduction of a **misfit function S(m)**, connected to **L(m)** through an expression: `L(m)` = k*exp(−`S(m)`) 
@@ -269,34 +269,28 @@ IMC first does Sampling `discrete models` in a **uniform random fashion** betwee
 
 One of the problems is that it requires an explicit formula for the a **priori distribution**! 
 
-## OK, then how to build the prior metagram?
-So...We want the model solutions are sampled at a rate proportional to their a **posteriori probabilities**, that is, **`models` consistent with a "priori information" as well as "observations" are picked most often**, whereas models that are in incompatible with either a priori information or observations (or both) are rarely sampled. The sampling algorithm can be described as consisting of two components: 
- - __Step 01:__ **generates** a `priori models`, that is, models sampled with a frequency distribution equal to the a priori distribution in the model space. This is accomplished by means of a random walk. This step may consist of a large number of mutually dependent sub-processes, each of which generates part of the a priori models. 
- - __Step 02:__ **accepts or rejects** attempted moves of the a `priori random walk` with probabilities that depend on the models ability to reproduce observations (Use your likelihood to examine ?). 
+## New Approach General Sampling concept
+So...We want the model solutions are sampled at a rate proportional to their a **posteriori probabilities**, that is, **`models` consistent with a "priori information" as well as "observations" are picked most often**, whereas models that are in incompatible with either a priori information or observations (or both) are rarely sampled. The general sampling algorithm can be described as consisting of two components: 
+ - __Step 01:__ **generates** a `priori models`, that is, we aim to obtain some model parameters sampled with a frequency distribution (transition probability) that reaches the stationarity(equalibrium) which is accomplished by means of a random walk. This step may consist of a large number of mutually dependent sub-processes, each of which generates part of the a priori models. 
+ - __Step 02:__ **accepts or rejects** attempted moves of the a `priori random walk` with probabilities that depend on the models ability to reproduce observations (Use your likelihood to examine). 
 
 
 ### Part 01. Probabilistic Formulation
-__A. Model parameters taking continuous values__
-In the inverse problem, the actual values of the model parameter can be underdetermined, due to lack of **significant data** or due to **`experimental uncertainties`**. It can also be overdetermined, if we repeat similar measurements. A better question would have been: **What information can we infer on the actual value of the model parameter vector m**? The Bayesian approach to inverse problems, describes the **`a priori information`**. We may have on the model vector m, by a **priori** density `ρ(m)`. We have the likelihood. As an example, when we describe experimental results(obv) `L(m)` by a vector of observed values ![formula](https://render.githubusercontent.com/render/math?math=d_\obv) with **`Gaussian experimental uncertainties`** described by a **covariance matrix `C`**, <img src="https://user-images.githubusercontent.com/31917400/76145629-05a67a00-6083-11ea-992b-91f52fa67db2.jpg" /> But how to introduce realistic a **priori** information in the model space? 
+__A. Model parameters taking continuous values and prior__
 
+The prior knowledge is important! In the inverse problem, the actual values of the model parameter can be underdetermined, due to lack of **significant data** or due to **`experimental uncertainties`**...so many noise. It can also be overdetermined, if we repeat similar measurements. A better question would have been: **What information can we infer on the actual value of the model parameter vector m**? The Bayesian approach to inverse problems, describes the necessity of **`a priori information`**. We may have on the model vector m, by a **priori** density `ρ(m)`. As an example, when we describe experimental results(obv) `L(m)` by a vector of observed values ![formula](https://render.githubusercontent.com/render/math?math=d_\obv) with **`Gaussian experimental uncertainties`** described by a **covariance matrix `C`**, <img src="https://user-images.githubusercontent.com/31917400/76145629-05a67a00-6083-11ea-992b-91f52fa67db2.jpg" /> But how to introduce realistic a **priori** information in this model space? 
 
+__B. Model parameter discretization and prior__
 
-
-
-__B. Model parameter discretization__
 If ![formula](https://render.githubusercontent.com/render/math?math=m_i) is continuous, f(![formula](https://render.githubusercontent.com/render/math?math=m_i)) is a density, thus we can say the probability defined for a region of the space is: <img src="https://user-images.githubusercontent.com/31917400/76164915-854b4c00-614a-11ea-8af6-fb0af773d3a4.jpg" /> For numerical computations, we discretize the space by defining a grid of points, where each point represents a surrounding region ∆![formula](https://render.githubusercontent.com/render/math?math=m_a), ∆![formula](https://render.githubusercontent.com/render/math?math=m_b),....small enough for the probability densities under consideration to be almost constant inside it. Then, we say **P(![formula](https://render.githubusercontent.com/render/math?math=m_i))** is "the probability of the region ∆![formula](https://render.githubusercontent.com/render/math?math=m_a), ∆![formula](https://render.githubusercontent.com/render/math?math=m_b)... surrounding the point ![formula](https://render.githubusercontent.com/render/math?math=m_i)". In the limit of an infinitely dense grid and assuming a continuous f(m) , "the probability of the point ![formula](https://render.githubusercontent.com/render/math?math=m_i)" tends to ![formula](https://render.githubusercontent.com/render/math?math=f_i=f(m_i))∆![formula](https://render.githubusercontent.com/render/math?math=m_a)∆![formula](https://render.githubusercontent.com/render/math?math=m_b)...
-
 If this is the case...
-<img src="https://user-images.githubusercontent.com/31917400/76166280-571f3980-6155-11ea-9d74-7f3f58521ec3.jpg" /> Now we can sample directly the posterior probability ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i). 
+<img src="https://user-images.githubusercontent.com/31917400/76166280-571f3980-6155-11ea-9d74-7f3f58521ec3.jpg" />
 
 > ### First sample the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) then we will modify this sampling procedure in such a way that the probability ![formula](https://render.githubusercontent.com/render/math?math=\sigma_i) is eventually sampled (One never creates a probability ex-nihilo(out of nothing) but rather modifies some prior into a posterior).
 
+__C. Designing an Equilibrium distribution of ![formula](https://render.githubusercontent.com/render/math?math=\p_i) and prior__
 
-
-
-
-__C. Designing an Equilibrium distribution__ ![formula](https://render.githubusercontent.com/render/math?math=\p_i)
- - Q. Given a set of points in the model space, with a probability ![formula](https://render.githubusercontent.com/render/math?math=p_i) attached to every ![formula](https://render.githubusercontent.com/render/math?math=m_i), how can we define random rules to select points such that the probability of selecting point ![formula](https://render.githubusercontent.com/render/math?math=m_i) is ![formula](https://render.githubusercontent.com/render/math?math=\p_i) ?
+[Question]: Given a set of points in the model space, with a probability ![formula](https://render.githubusercontent.com/render/math?math=\p_i) attached to every ![formula](https://render.githubusercontent.com/render/math?math=m_i), how can we define random rules to select points such that the probability of selecting point ![formula](https://render.githubusercontent.com/render/math?math=m_i) is ![formula](https://render.githubusercontent.com/render/math?math=\p_i) ?
 
 [Equilibrium]: The design of a random walk that equilibrates at a desired distribution {![formula](https://render.githubusercontent.com/render/math?math=\p_i)} can be formulated as the design of an equilibrium flow having a throughput of ![formula](https://render.githubusercontent.com/render/math?math=\p_i) particles at point_i. The simplest equilibrium flows are symmetric: ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\f_\ji) 
 
@@ -307,11 +301,6 @@ See this flow: ![formula](https://render.githubusercontent.com/render/math?math=
 It is a "flow" as it can be interpreted as the number of particles going to point_i from point_j in a single step((The flow corresponding to an equilibrated random walk has the property that the number of particles ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\p_i) at point_i is constant in time). Thus that a random walk has equilibrated at a distribution ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\p_i) means that in each step, the total flow into a given point is equal to the total flow out from the point. And the flow has the property that the total flow out from point_i and hence the total flow into the another point must equal: ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\f_\ij=\Sigma\f_\ki=\p_i)   
 
 
-
-
-
---------------------------
-
 Consider a random process that selects points in the model space. If the probability of selecting **point_i** is ![formula](https://render.githubusercontent.com/render/math?math=p_i), then the points(![formula](https://render.githubusercontent.com/render/math?math=m_i)) selected by the process are called **"samples"** of the probability distribution {![formula](https://render.githubusercontent.com/render/math?math=p_i)}. 
 
 The sampling methods is the random walks. The **possible paths** of a random walk define a graph in the model space. It obeys some probabilistic rules that allow it to jump from one model to a connected model in each step. This will, asymptotically, have some probability: ![formula](https://render.githubusercontent.com/render/math?math=p_i) to be `at` **point_i** `at` a **given step**. The neighborhood of given model is defined as the models to which a random walker can go in one step, if it starts at the given model. We say it's the transitional probability ![formula](https://render.githubusercontent.com/render/math?math=p_\ij) for the random walker to go to **point_i** if it currently is at the neighboring **point_j**, and ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\p_\ij)=![formula](https://render.githubusercontent.com/render/math?math=p_1\j)+![formula](https://render.githubusercontent.com/render/math?math=p_2\j)+...=1. 
@@ -321,7 +310,14 @@ Let's say there is a probability ![formula](https://render.githubusercontent.com
 Instead of letting ![formula](https://render.githubusercontent.com/render/math?math=\p_i) represent the probability that a (single) random walker is at **point_i**, we can let ![formula](https://render.githubusercontent.com/render/math?math=\p_i) be the number of "particles" at **point_i**. Then ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\p_i) represents the "total number of particles"...and not 1.
 
 
+__D. Tools
 
+ - Naive Walks
+ 
+ - Uniform Walks
+ 
+ - Modification
+ 
 
 
 
