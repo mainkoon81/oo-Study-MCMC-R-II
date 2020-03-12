@@ -313,8 +313,7 @@ __[D] Journey to obtain Prior__
    - if the "new" point has less neighbors than the "old" point (or the same number), then always accept the move to the "new" point!
    - if the "new" point has more neighbors than the "old" point, then make a random decision to move to the "new", or to stay at the "old", with the probability `alpha` = ![formula](https://render.githubusercontent.com/render/math?math=\n_j/\n_i)
    - ...`old/new` is big? then accept the move. `old/new` is small? then reject the move. 
-   - This iteration will equilibrate the probability distribution (with all points ![formula](https://render.githubusercontent.com/render/math?math=m_i) having the same probability??)
-   - By making the histograms of the model parameters selected, we can obtain the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for every model ![formula](https://render.githubusercontent.com/render/math?math=\m_i).  
+   - This iteration will equilibrate the probability distribution (with all points ![formula](https://render.githubusercontent.com/render/math?math=m_i) having the same probability distribution ??). By making the histograms of the model parameters selected, we can obtain the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for every model ![formula](https://render.githubusercontent.com/render/math?math=\m_i).  
 
 
 ### Part 02. Prior Sampling
