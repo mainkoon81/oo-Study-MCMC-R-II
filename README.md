@@ -271,11 +271,8 @@ One of the problems is that it requires an explicit formula for the a **priori d
 
 ## OK, then how to build the prior metagram?
 So...We want the model solutions are sampled at a rate proportional to their a **posteriori probabilities**, that is, **`models` consistent with a "priori information" as well as "observations" are picked most often**, whereas models that are in incompatible with either a priori information or observations (or both) are rarely sampled. The sampling algorithm can be described as consisting of two components: 
- - The first component **generates** a `priori models`, that is, models sampled with a frequency distribution equal to the a priori distribution in the model space. This is accomplished by means of a random walk. This step may consist of a large number of mutually dependent sub-processes, each of which generates part of the a priori models. 
- - The second component **accepts or rejects** attempted moves of the a `priori random walk` with probabilities that depend on the models ability to reproduce observations (Use your likelihood to examine ?). 
-
-
-
+ - __Step 01:__ **generates** a `priori models`, that is, models sampled with a frequency distribution equal to the a priori distribution in the model space. This is accomplished by means of a random walk. This step may consist of a large number of mutually dependent sub-processes, each of which generates part of the a priori models. 
+ - __Step 02:__ **accepts or rejects** attempted moves of the a `priori random walk` with probabilities that depend on the models ability to reproduce observations (Use your likelihood to examine ?). 
 
 
 ### Part 01. Probabilistic Formulation
