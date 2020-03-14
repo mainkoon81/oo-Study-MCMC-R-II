@@ -340,11 +340,11 @@ There are two ways of defining the a **priori probability distribution**:
 
 ### Part 04. IMC with Uniform Random Walk Prior example
 For example in geophysics, let's say the Layer thickness follows `Exp(λ)`, and mass densities in the layers follow `Log(x) ~ N(μ,σ2)`. We can decide to generate one-dimensional Earth models for mass density by the following random walk in the model space: In each iteration,
-      - 1. Select a layer uniformly at random
-      - 2. Choose a new value for the layer thickness according to the exponential distribution
-      - 3. Choose a value for the mass density inside the layer, according to the log-normal distribution
-    - If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),ρ(z2),...} will have some probability distribution (representing our a priori knowledge) for the parameters {ρ(z1),ρ(z2),...} which we may not need to characterize explicitly.
-    - In this example, the pseudo random procedure produces, by its very definition, samples m1,m2,... the a priori probability density ρ(m). These samples will be the input to the next modifying Metropolis decision rule.
+- 1. Select a layer uniformly at random
+- 2. Choose a new value for the layer thickness according to the exponential distribution
+- 3. Choose a value for the mass density inside the layer, according to the log-normal distribution
+- If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),ρ(z2),...} will have some probability distribution (representing our a priori knowledge) for the parameters {ρ(z1),ρ(z2),...} which we may not need to characterize explicitly.
+- In this example, the pseudo random procedure produces, by its very definition, samples m1,m2,... the a priori probability density ρ(m). These samples will be the input to the next modifying Metropolis decision rule.
 
 
 
