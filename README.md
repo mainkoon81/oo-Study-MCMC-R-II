@@ -306,21 +306,17 @@ __[D] Two ways to process the metagraph__
 
 Let's define P(![formula](https://render.githubusercontent.com/render/math?math=m_i)) for each metagraph we have!
  - __Option 01. Naive Random Walks:__ P(![formula](https://render.githubusercontent.com/render/math?math=m_i))=![formula](https://render.githubusercontent.com/render/math?math=\p_i) ∝ ![formula](https://render.githubusercontent.com/render/math?math=\n_i)
-   - All points ![formula](https://render.githubusercontent.com/render/math?math=\m_i) have a probability proportional to their own number of neighbors(edges)...so it's an one and off case and no need to concern the equilibrium distribution at the end to obtain **`a single prior sample`**.  
+   - All points ![formula](https://render.githubusercontent.com/render/math?math=\m_i) have a probability proportional to their own number of neighbors(edges)...so it's an one and off case and this is the equilibrium distribution to obtain **`a single prior sample`**.  
    - ![formula](https://render.githubusercontent.com/render/math?math=\p_i=\n_i/\Sigma\n_j) where ![formula](https://render.githubusercontent.com/render/math?math=\n_i) is the number of neighbors of ![formula](https://render.githubusercontent.com/render/math?math=\m_i) (including the point ![formula](https://render.githubusercontent.com/render/math?math=\m_i) itself)...so the probability is obtained by the comparison of the neighbor sizes between you and your neighbors?    
     <img src="https://user-images.githubusercontent.com/31917400/76547840-c793c680-6485-11ea-8dab-dcfbb4da2c39.jpg" />
  
  - __Option 02. Uniform Random Walks:__ P(![formula](https://render.githubusercontent.com/render/math?math=m_i))=![formula](https://render.githubusercontent.com/render/math?math=\p_i) = C
    - So many output cases are possible. We might need to see the equilibrium distribution to obtain **`a single prior sample`**.  
-   - Let's say
+   - The equilibrium distribution can be obtained by followings
      - if the "new" point has less neighbors than the "old" point (or the same number), then always accept the move to the "new" point!
      - if the "new" point has more neighbors than the "old" point, then make a random decision to move to the "new", or to stay at the "old", with the probability `alpha` = ![formula](https://render.githubusercontent.com/render/math?math=\n_j/\n_i)
      - ...`old/new` is big? then accept the move. `old/new` is small? then reject the move. 
-   - This iteration will equilibrate the probability distribution (with all points ![formula](https://render.githubusercontent.com/render/math?math=m_i) having the same probability distribution). 
    
-> ### In any case, by making the histograms of the model parameters selected, we can obtain the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for every model parameter ![formula](https://render.githubusercontent.com/render/math?math=\m_i).  
-
-
 ### Part 02. Prior Sampling
 If, for some reason, we are not able to directly design a random walk that samples the prior, but we have an expression that gives the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for any model ![formula](https://render.githubusercontent.com/render/math?math=\m_i), we can, for instance, start a random walk that samples the **`model space`**(metagram?) with **uniform probability**!  
 
