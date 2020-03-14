@@ -319,7 +319,7 @@ Let's define P(`m`) for each metagraph we have!
    
 ### Part 02. Prior Sampling
 There are two ways of defining the a **priori probability distribution**:
-  - (1) By defining a (pseudo) **`random process`** (i.e., a set of pseudo **random rules**) whose output is models assumed to represent pseudo random realizations of `ρ(m)`
+  - (1) By defining a (pseudo) **`random process`** (i.e., a set of pseudo **random rules**) whose output is models assumed to represent pseudo random realizations of `ρ(m)`: the **metagraph!**
     - Let's say...for example in geophysics, the Layer thickness follows `Exp(λ)`, and mass densities in the layers follow `Log(x) ~ N(μ,σ2)`. We can decide to generate one-dimensional Earth models for mass density by the following random walk in the model space: In each iteration,
       - 1. Select a layer uniformly at random
       - 2. Choose a new value for the layer thickness according to the exponential distribution
