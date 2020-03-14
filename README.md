@@ -311,7 +311,7 @@ Let's define P(![formula](https://render.githubusercontent.com/render/math?math=
     <img src="https://user-images.githubusercontent.com/31917400/76547840-c793c680-6485-11ea-8dab-dcfbb4da2c39.jpg" />
  
  - __Option 02. Uniform Random Walks:__ P(![formula](https://render.githubusercontent.com/render/math?math=m_i))=![formula](https://render.githubusercontent.com/render/math?math=\p_i) = C
-   - So many output cases are possible. We might need to see the equilibrium distribution to obtain **`a single prior sample`**.  
+   - All points ![formula](https://render.githubusercontent.com/render/math?math=\m_i) have the same probability, which implies too many output cases are possible. We might need to see the equilibrium distribution to obtain **`a single prior sample`**.  
    - The equilibrium distribution can be obtained by followings
      - if the "new" point has less neighbors than the "old" point (or the same number), then always accept the move to the "new" point!
      - if the "new" point has more neighbors than the "old" point, then make a random decision to move to the "new", or to stay at the "old", with the probability `alpha` = ![formula](https://render.githubusercontent.com/render/math?math=\n_j/\n_i)
