@@ -302,18 +302,18 @@ __[C] Designing an Equilibrium distribution of ![formula](https://render.githubu
 
 It is a "flow" as it can be interpreted as the number of particles going to point_i from point_j in a single step((The flow corresponding to an equilibrated random walk has the property that the number of particles ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\p_i) at point_i is constant in time). Thus that a random walk has equilibrated at a distribution ![formula](https://render.githubusercontent.com/render/math?math=\f_\ij=\p_i) means that in each step, the total flow into a given point is equal to the total flow out from the point. And the flow has the property that the total flow out from point_i and hence the total flow into the another point must equal: ![formula](https://render.githubusercontent.com/render/math?math=\Sigma\f_\ij=\Sigma\f_\ki=\p_i)   
 
-__[D] Starting point of Prior Journey__
- - __Naive Walks:__ P(![formula](https://render.githubusercontent.com/render/math?math=m_i))=![formula](https://render.githubusercontent.com/render/math?math=\p_i) ∝ ![formula](https://render.githubusercontent.com/render/math?math=\n_i)
-   - Every edge gives equal probability rule: ![formula](https://render.githubusercontent.com/render/math?math=\p_\ji=1/\n_i) and ![formula](https://render.githubusercontent.com/render/math?math=\p_\ij=1/\n_j).
+__[D] Starting stage of Prior Journey__
+ - __Option 01. Naive Walks:__ P(![formula](https://render.githubusercontent.com/render/math?math=m_i))=![formula](https://render.githubusercontent.com/render/math?math=\p_i) ∝ ![formula](https://render.githubusercontent.com/render/math?math=\n_i)
    - All points ![formula](https://render.githubusercontent.com/render/math?math=\m_i) have a probability proportional to their own number of neighbors(edges).
    - ![formula](https://render.githubusercontent.com/render/math?math=\p_i=\n_i/\Sigma\n_j) where ![formula](https://render.githubusercontent.com/render/math?math=\n_i) is the number of neighbors of ![formula](https://render.githubusercontent.com/render/math?math=\m_i) (including the point ![formula](https://render.githubusercontent.com/render/math?math=\m_i) itself)...so the probability is obtained by the comparison of the neighbor sizes between you and your neighbors?    
     <img src="https://user-images.githubusercontent.com/31917400/76547840-c793c680-6485-11ea-8dab-dcfbb4da2c39.jpg" />
  
- - __Uniform Random Walks:__ P(![formula](https://render.githubusercontent.com/render/math?math=m_i))=![formula](https://render.githubusercontent.com/render/math?math=\p_i) = C
-   - if the "new" point has less neighbors than the "old" point (or the same number), then always accept the move to the "new" point!
-   - if the "new" point has more neighbors than the "old" point, then make a random decision to move to the "new", or to stay at the "old", with the probability `alpha` = ![formula](https://render.githubusercontent.com/render/math?math=\n_j/\n_i)
-   - ...`old/new` is big? then accept the move. `old/new` is small? then reject the move. 
-   - This iteration will equilibrate the probability distribution (with all points ![formula](https://render.githubusercontent.com/render/math?math=m_i) having the same probability distribution ??). By making the histograms of the model parameters selected, we can obtain the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for every model ![formula](https://render.githubusercontent.com/render/math?math=\m_i).  
+ - __Option 02. Uniform Random Walks:__ P(![formula](https://render.githubusercontent.com/render/math?math=m_i))=![formula](https://render.githubusercontent.com/render/math?math=\p_i) = C
+   - Let's say
+     - if the "new" point has less neighbors than the "old" point (or the same number), then always accept the move to the "new" point!
+     - if the "new" point has more neighbors than the "old" point, then make a random decision to move to the "new", or to stay at the "old", with the probability `alpha` = ![formula](https://render.githubusercontent.com/render/math?math=\n_j/\n_i)
+     - ...`old/new` is big? then accept the move. `old/new` is small? then reject the move. 
+   - This iteration will equilibrate the probability distribution (with all points ![formula](https://render.githubusercontent.com/render/math?math=m_i) having the same probability distribution). By making the histograms of the model parameters selected, we can obtain the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for every model ![formula](https://render.githubusercontent.com/render/math?math=\m_i).  
 
 
 ### Part 02. Prior Sampling
