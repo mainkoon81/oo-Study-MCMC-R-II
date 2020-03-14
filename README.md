@@ -315,7 +315,7 @@ __[D] Starting stage of Prior Journey__
      - ...`old/new` is big? then accept the move. `old/new` is small? then reject the move. 
    - This iteration will equilibrate the probability distribution (with all points ![formula](https://render.githubusercontent.com/render/math?math=m_i) having the same probability distribution). 
    
-### > By making the histograms of the model parameters selected, we can obtain the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for every model parameter ![formula](https://render.githubusercontent.com/render/math?math=\m_i).  
+> ### In any case, by making the histograms of the model parameters selected, we can obtain the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for every model parameter ![formula](https://render.githubusercontent.com/render/math?math=\m_i).  
 
 
 ### Part 02. Prior Sampling
