@@ -304,7 +304,7 @@ It is a "flow" as it can be interpreted as the number of particles going to poin
 
 __[D] Two ways to process the metagraph__
  - __Option 01. Naive Random Walks:__ P(![formula](https://render.githubusercontent.com/render/math?math=m_i))=![formula](https://render.githubusercontent.com/render/math?math=\p_i) ∝ ![formula](https://render.githubusercontent.com/render/math?math=\n_i)
-   - All points ![formula](https://render.githubusercontent.com/render/math?math=\m_i) have a probability proportional to their own number of neighbors(edges)...so it's an one and off case and no need to concern the equilibrium distribution at the end to optain **`a single prior sample`**.  
+   - All points ![formula](https://render.githubusercontent.com/render/math?math=\m_i) have a probability proportional to their own number of neighbors(edges)...so it's an one and off case and no need to concern the equilibrium distribution at the end to obtain **`a single prior sample`**.  
    - ![formula](https://render.githubusercontent.com/render/math?math=\p_i=\n_i/\Sigma\n_j) where ![formula](https://render.githubusercontent.com/render/math?math=\n_i) is the number of neighbors of ![formula](https://render.githubusercontent.com/render/math?math=\m_i) (including the point ![formula](https://render.githubusercontent.com/render/math?math=\m_i) itself)...so the probability is obtained by the comparison of the neighbor sizes between you and your neighbors?    
     <img src="https://user-images.githubusercontent.com/31917400/76547840-c793c680-6485-11ea-8dab-dcfbb4da2c39.jpg" />
  
