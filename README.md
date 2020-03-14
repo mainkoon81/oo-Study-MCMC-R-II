@@ -318,7 +318,7 @@ Let's define P(`m`) for each metagraph we have!
      - ...`old/new` is big? then accept the move. `old/new` is small? then reject the move. 
    
 ### Part 02. Prior Sampling
-If, for some reason, we are not able to directly design a random walk that samples the prior, but we have an expression that gives the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for any model ![formula](https://render.githubusercontent.com/render/math?math=\m_i), we can, for instance, start a random walk that samples the **`model space`**(metagram?) with **uniform probability**!  
+If, for some reason, we are not able to directly design a random walk that samples the prior, but we have an expression that gives the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for any model ![formula](https://render.githubusercontent.com/render/math?math=\m_i), we can, for instance, start a **`Uniform Random Walk`** that samples the **model space** with uniform probability.  
 
 If we don't have the expression for the prior probability, we are able to **sample the a priori probability density `ρ(m)`**? There are two ways of defining the a **priori probability distribution**:
   - (1) By defining a (pseudo) **`random process`** (i.e., a set of pseudo **random rules**) whose output is models assumed to represent pseudo random realizations of `ρ(m)`
@@ -331,7 +331,7 @@ If we don't have the expression for the prior probability, we are able to **samp
   
   - (2) By explicitly giving a formula for the a priori probability density `ρ(m)`
     - We may choose the probability density: <img src="https://user-images.githubusercontent.com/31917400/76333067-02142c80-62e9-11ea-982b-75fde0f26607.jpg" />
-    - In this example, where we only have an expression for `ρ(m)` , we have to generate samples from this distribution. This can be done in many different ways. One way is to start with a na¨ıve walk and then use the Metropolis rule to modify it, in order to sample the prior distribution `ρ(m)`.  
+    - In this example, where we only have an expression for `ρ(m)` , we have to generate samples from this distribution. This can be done in many different ways. One way is to start with a **`Naive Random Walk`** and then use the Metropolis rule to modify it, in order to sample the prior distribution `ρ(m)`.  
 
 
 
