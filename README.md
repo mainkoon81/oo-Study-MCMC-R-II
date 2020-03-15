@@ -380,7 +380,12 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
    - Taking the prior samples as inputs, we obtain the posterior samples from the metropolis rule...?  
    
  - ### After posterior samples?
-   - 
+   <img src="https://user-images.githubusercontent.com/31917400/76703658-efc03700-66ca-11ea-938d-273251d99891.jpg" />
+
+   - Even though the models in the posterior above are quite different, all of them, within experimental uncertainties, are posterior models **with high likelihood**: And gravity data alone can not have a preferred model. They do not look as "random". They all have a zone of **high-density contrast** centered around 10 km depth(the bumps at the similar location), **`which is a "structure" resolved by the data`**!
+   - We compute central or dispersion estimators....
+     - While mean values and standard deviations are good measures for Gaussian functions, **median** and **mean deviations** are better adapted to Laplacian(double exponential) functions.  
+
 
 
 
