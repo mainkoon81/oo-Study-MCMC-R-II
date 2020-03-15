@@ -355,7 +355,11 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
    - ### the mass density `k` across the **vertical fault** produce a **`gravity anomaly`**(data noise?) at the surface.
    - **predictive function?**(Data & Parameter relation) where **G** is the gravitational constant...
      <img src="https://user-images.githubusercontent.com/31917400/76699199-06529800-66a3-11ea-8f38-d3ff5af73530.jpg" />  
-       
+
+ - ### Likelihood Knowledge?
+   - We know that the measured data values are assumed to be contaminated by statistically independent, random errors ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_i) modeled by some gaussian mixture, then the likelihood function **L(`z`)**, measuring the degree of fit between synthetic and observed data is... 
+     <img src="https://user-images.githubusercontent.com/31917400/76700085-a57b8d80-66ab-11ea-976a-0e16a1c71615.jpg" />
+
  - ### Prior Knowledge?
    - __parameters:__ depth `z`, log of mass density for each layer `k`, thinkness for each layer `l`
      - `l ~ Exp(λ)`, and `k ~ N(μ,σ2)`
@@ -364,11 +368,10 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
 
      - vertical profile of mass density: **ρ(`z`)** = ρ(`k`)ρ(`l`)
      - ∆**ρ(`z`)** is the horizontal density contrast across the fault at depth `z`
+   - So we don't have an accurate prior. Let's sample some. 
 
- - ### Likelihood Knowledge?
-   - We know that the measured data values are assumed to be contaminated by statistically independent, random errors ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_i) modeled by some gaussian mixture, then the likelihood function **L(`z`)**, measuring the degree of fit between synthetic and observed data is... 
-     <img src="https://user-images.githubusercontent.com/31917400/76700085-a57b8d80-66ab-11ea-976a-0e16a1c71615.jpg" />
-
+ - ### Sampling Prior?
+ 
 
 
 
