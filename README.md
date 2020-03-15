@@ -384,7 +384,9 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
 
    - Even though the models in the posterior above are quite different, all of them, within experimental uncertainties, are posterior models **with high likelihood**: And gravity data alone can not have a preferred model. They do not look as "random". They all have a zone of **high-density contrast** centered around 10 km depth(the bumps at the similar location), **`which is a "structure" resolved by the data`**!
    - We compute central or dispersion estimators....
-     - While mean values and standard deviations are good measures for Gaussian functions, **median** and **mean deviations** are better adapted to Laplacian(double exponential) functions.  
+     - While mean values and standard deviations are good measures for Gaussian functions, **median** and **mean deviations** are better adapted to Laplacian(double exponential) functions (Clearly, computing standard deviations or covariances may be meaningless, if the posterior probability density is far from Gaussian, which is always the case for highly nonlinear problems). 
+   
+## Do we average out all posterior samples????    
 
 
 
