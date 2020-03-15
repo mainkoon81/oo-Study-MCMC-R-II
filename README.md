@@ -339,15 +339,14 @@ There are two ways of defining the a **priori probability distribution**:
 
 
 ### Part 04. IMC with Uniform Random Walk Prior example
-- If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),ρ(z2),...} will have some probability distribution (representing our a priori knowledge) for the parameters {ρ(z1),ρ(z2),...} which we may not need to characterize explicitly.
-- In this example, the pseudo random procedure produces, by its very definition, samples m1,m2,... the a priori probability density ρ(m). These samples will be the input to the next modifying Metropolis decision rule.
+If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),ρ(z2),...} will have some probability distribution (representing our a priori knowledge) for the parameters {ρ(z1),ρ(z2),...} which we may not need to characterize explicitly. In this example, the pseudo random procedure produces, by its very definition, samples m1,m2,... the a priori probability density ρ(m). These samples will be the input to the next modifying Metropolis decision rule.
 
  - What's your Problem?
    - We want to know most likely configuration of layers under the ground.
    - Noisy data: We don't believe the data collected coz..the measured data values are assumed to be contaminated. 
      <img src="https://user-images.githubusercontent.com/31917400/76699516-fc7e6400-66a5-11ea-91e7-30112c354974.jpg" />
    
-   - We are not sure about data, so we are not sure about the parameter distribution of course...perhaps, we have to sample all possible parameter distributions..
+   - ### We are not sure about data, so we are not sure about the parameter distribution of course...perhaps, we have to sample all possible parameter distributions..
    
    - __Dataset:__ gravity observation data
      - ![formula](https://render.githubusercontent.com/render/math?math=\d_i)=d(![formula](https://render.githubusercontent.com/render/math?math=\x_i))=![formula](https://render.githubusercontent.com/render/math?math=g'(\x_i)) where `g(x)` is the vertical component of the gravity.
