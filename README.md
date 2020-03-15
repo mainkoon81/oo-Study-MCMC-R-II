@@ -348,8 +348,8 @@ There are two ways of defining the a **priori probability distribution**:
    
    - __Dataset:__ gravity observation data
      - ![formula](https://render.githubusercontent.com/render/math?math=\d_i)=d(![formula](https://render.githubusercontent.com/render/math?math=\x_i))=![formula](https://render.githubusercontent.com/render/math?math=g'(\x_i)) where `g(x)` is the vertical component of the gravity.
-     - the mass density `q` across the **vertical fault** produce a **`gravity anomaly`** at the surface.
-     - the 20 triangle, the location of data collection at 20 equispaced points to the right of the fault, the first point being located 2 km from the fault, and the last point being located 40 km from the fault 
+     - the 20 triangle, the location of data collection at 20 equispaced points to the right of the fault, the first point being located 2 km from the fault, and the last point being located 40 km from the fault.
+     - ### the mass density `k` across the **vertical fault** produce a **`gravity anomaly`** at the surface.
  - Prior Knowledge?
    - __parameters:__ depth `z`, log of mass density for each layer `k`, thinkness for each layer `l`
      - `l ~ Exp(λ)`, and `k ~ N(μ,σ2)`
