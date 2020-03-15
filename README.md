@@ -351,6 +351,7 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
 
    - gravity observation data
    - ![formula](https://render.githubusercontent.com/render/math?math=\d_i)=d(![formula](https://render.githubusercontent.com/render/math?math=\x_i))=![formula](https://render.githubusercontent.com/render/math?math=g'(\x_i)) where `g(x)` is the vertical component of the gravity. (As a data & parameter relation, can it be a predictive function?)
+   - ![formula](https://render.githubusercontent.com/render/math?math=\x_i) is a distance from the fault?
    - the 20 triangle, the location of data collection at 20 equispaced points to the right of the fault, the first point being located 2 km from the fault, and the last point being located 40 km from the fault.
    - ### the mass density `k` across the **vertical fault** produce a **`gravity anomaly`**(data noise?) at the surface.
    - **predictive function?**(Data & Parameter relation) where **G** is the gravitational constant...
