@@ -344,11 +344,11 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
  - ### What's your Problem?
    - We want to know most likely configuration of layers under the ground.
    - Noisy data: We don't believe the data collected coz..the measured data values are assumed to be contaminated. 
-     <img src="https://user-images.githubusercontent.com/31917400/76699516-fc7e6400-66a5-11ea-91e7-30112c354974.jpg" />
-   
    - ### We are not sure about data, so we are not sure about the parameter distribution of course...perhaps, we have to sample all possible parameter distributions..ranging from `ρ(z)`,`ρ(z)`,`ρ(z)`.. to `σ(z)`,`σ(z)`,`σ(z)`..ok?
    
  - ### Dataset? 
+   <img src="https://user-images.githubusercontent.com/31917400/76699516-fc7e6400-66a5-11ea-91e7-30112c354974.jpg" />
+
    - gravity observation data
    - ![formula](https://render.githubusercontent.com/render/math?math=\d_i)=d(![formula](https://render.githubusercontent.com/render/math?math=\x_i))=![formula](https://render.githubusercontent.com/render/math?math=g'(\x_i)) where `g(x)` is the vertical component of the gravity. (As a data & parameter relation, can it be a predictive function?)
    - the 20 triangle, the location of data collection at 20 equispaced points to the right of the fault, the first point being located 2 km from the fault, and the last point being located 40 km from the fault.
