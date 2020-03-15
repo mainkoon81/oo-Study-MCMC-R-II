@@ -351,9 +351,9 @@ There are two ways of defining the a **priori probability distribution**:
      - the mass density `q` across the **vertical fault** produce a **`gravity anomaly`** at the surface.
      - the 20 triangle, the location of data collection at 20 equispaced points to the right of the fault, the first point being located 2 km from the fault, and the last point being located 40 km from the fault 
      
-   - __parameters:__ depth `z`, mass density for each layer `k`, thinkness for each layer `l`
+   - __parameters:__ depth `z`, log of mass density for each layer `k`, thinkness for each layer `l`
      - vertical profile of mass density: **ρ(`z`)** = ρ(`k`)ρ(`l`)
-     - `Log(k) ~ N(μ,σ2)` and `l ~ Exp(λ)`
+     - `l ~ Exp(λ)`, and `k ~ N(μ,σ2)`
        <img src="https://user-images.githubusercontent.com/31917400/76699618-2421fc00-66a7-11ea-91d6-d2da4a6dbe64.jpg" />
 
      - ∆**ρ(`z`)** is the horizontal density contrast across the fault at depth `z`
