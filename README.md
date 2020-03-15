@@ -346,6 +346,21 @@ For example in geophysics, let's say the Layer thickness follows `Exp(λ)`, and 
 - If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),ρ(z2),...} will have some probability distribution (representing our a priori knowledge) for the parameters {ρ(z1),ρ(z2),...} which we may not need to characterize explicitly.
 - In this example, the pseudo random procedure produces, by its very definition, samples m1,m2,... the a priori probability density ρ(m). These samples will be the input to the next modifying Metropolis decision rule.
 
+ - Problems
+   - We want to know most likely configuration of layers under the ground.
+     <img src="https://user-images.githubusercontent.com/31917400/76699374-a8bf4b00-66a4-11ea-8ef9-f0a59a3384df.jpg" />
+
+   - __Dataset:__ gravity observation data
+     - ![formula](https://render.githubusercontent.com/render/math?math=\d_i)=d(![formula](https://render.githubusercontent.com/render/math?math=\x_i))=![formula](https://render.githubusercontent.com/render/math?math=g'(\x_i)) where `g(x)` is the vertical component of the gravity.
+     - the mass density `q` across the **vertical fault** produce a **`gravity anomaly`** at the surface.
+     - the 20 triangle, the location of data collection at 20 equispaced points to the right of the fault, the first point being located 2 km from the fault, and the last point being located 40 km from the fault 
+     
+   - __parameters:__ depth `z`, mass density for each layer `q`, thinkness for each layer `l`
+     - vertical profile of mass density: **ρ(`z`)** = ρ(`q`)ρ(`l`)
+     - ∆**ρ(`z`)** is the horizontal density contrast across the fault at depth `z`
+     - total thinkness **Σ`l`** = 100 km
+   - __predictive distribution__ where **G** is the gravitational constant
+     <img src="https://user-images.githubusercontent.com/31917400/76699199-06529800-66a3-11ea-8f38-d3ff5af73530.jpg" />
 
 
 
