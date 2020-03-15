@@ -356,7 +356,7 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
    - __parameters:__ depth `z`, log of mass density for each layer `k`, thinkness for each layer `l`
      - `l ~ Exp(λ)`, and `k ~ N(μ,σ2)`
      - total thinkness **Σ`l`** = 100 km
-       <img src="https://user-images.githubusercontent.com/31917400/76699738-5bdd7380-66a8-11ea-9c61-5dd8d0f11da9.jpg" />
+       <img src="https://user-images.githubusercontent.com/31917400/76700702-1aea5c80-66b2-11ea-884a-abbf714c580a.jpg" />
 
      - vertical profile of mass density: **ρ(`z`)** = ρ(`k`)ρ(`l`)
      - ∆**ρ(`z`)** is the horizontal density contrast across the fault at depth `z`
