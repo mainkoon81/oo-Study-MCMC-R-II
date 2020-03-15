@@ -344,7 +344,10 @@ There are two ways of defining the a **priori probability distribution**:
 
  - What's your Problem?
    - We want to know most likely configuration of layers under the ground.
+   - Noisy data: We don't believe the data collected coz..the measured data values are assumed to be contaminated. 
      <img src="https://user-images.githubusercontent.com/31917400/76699516-fc7e6400-66a5-11ea-91e7-30112c354974.jpg" />
+   
+   - We are not sure about data, so we are not sure about the parameter distribution of course...perhaps, we have to sample all possible parameter distributions..
    
    - __Dataset:__ gravity observation data
      - ![formula](https://render.githubusercontent.com/render/math?math=\d_i)=d(![formula](https://render.githubusercontent.com/render/math?math=\x_i))=![formula](https://render.githubusercontent.com/render/math?math=g'(\x_i)) where `g(x)` is the vertical component of the gravity.
@@ -361,6 +364,9 @@ There are two ways of defining the a **priori probability distribution**:
    - __predictive distribution__ where **G** is the gravitational constant
      <img src="https://user-images.githubusercontent.com/31917400/76699199-06529800-66a3-11ea-8f38-d3ff5af73530.jpg" />
 
+ - Likelihood Knowledge?
+   - We know that the measured data values are assumed to be contaminated by statistically independent, random errors ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_i) modeled by some gaussian mixture, then the likelihood function **L(m)**, measuring the degree of fit between synthetic and observed data is... 
+     <img src="https://user-images.githubusercontent.com/31917400/76700003-dc9d6f00-66aa-11ea-9063-9089df84dd2f.jpg" />
 
 
 
