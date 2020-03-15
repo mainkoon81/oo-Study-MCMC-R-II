@@ -348,12 +348,13 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
    
    - ### We are not sure about data, so we are not sure about the parameter distribution of course...perhaps, we have to sample all possible parameter distributions..ranging from `ρ(z)`,`ρ(z)`,`ρ(z)`.. to `σ(z)`,`σ(z)`,`σ(z)`..ok?
    
-   - __Dataset:__ gravity observation data
-     - ![formula](https://render.githubusercontent.com/render/math?math=\d_i)=d(![formula](https://render.githubusercontent.com/render/math?math=\x_i))=![formula](https://render.githubusercontent.com/render/math?math=g'(\x_i)) where `g(x)` is the vertical component of the gravity. (As a data & parameter relation, can it be a predictive function?)
-     - the 20 triangle, the location of data collection at 20 equispaced points to the right of the fault, the first point being located 2 km from the fault, and the last point being located 40 km from the fault.
-     - ### the mass density `k` across the **vertical fault** produce a **`gravity anomaly`**(data noise?) at the surface.
-     - __predictive function(Data & Parameter relation) where **G** is the gravitational constant...
-       <img src="https://user-images.githubusercontent.com/31917400/76699199-06529800-66a3-11ea-8f38-d3ff5af73530.jpg" />  
+ - ### Dataset? 
+   - gravity observation data
+   - ![formula](https://render.githubusercontent.com/render/math?math=\d_i)=d(![formula](https://render.githubusercontent.com/render/math?math=\x_i))=![formula](https://render.githubusercontent.com/render/math?math=g'(\x_i)) where `g(x)` is the vertical component of the gravity. (As a data & parameter relation, can it be a predictive function?)
+   - the 20 triangle, the location of data collection at 20 equispaced points to the right of the fault, the first point being located 2 km from the fault, and the last point being located 40 km from the fault.
+   - ### the mass density `k` across the **vertical fault** produce a **`gravity anomaly`**(data noise?) at the surface.
+   - **predictive function?**(Data & Parameter relation) where **G** is the gravitational constant...
+     <img src="https://user-images.githubusercontent.com/31917400/76699199-06529800-66a3-11ea-8f38-d3ff5af73530.jpg" />  
        
  - ### Prior Knowledge?
    - __parameters:__ depth `z`, log of mass density for each layer `k`, thinkness for each layer `l`
