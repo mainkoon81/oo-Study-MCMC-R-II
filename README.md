@@ -339,14 +339,10 @@ There are two ways of defining the a **priori probability distribution**:
 
 
 ### Part 04. IMC with Uniform Random Walk Prior example
-For example in geophysics, let's say the Layer thickness follows `Exp(λ)`, and mass densities in the layers follow `Log(x) ~ N(μ,σ2)`. We can decide to generate one-dimensional Earth models for mass density by the following random walk in the model space: In each iteration,
-- 1. Select a layer uniformly at random
-- 2. Choose a new value for the layer thickness according to the exponential distribution
-- 3. Choose a value for the mass density inside the layer, according to the log-normal distribution
 - If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),ρ(z2),...} will have some probability distribution (representing our a priori knowledge) for the parameters {ρ(z1),ρ(z2),...} which we may not need to characterize explicitly.
 - In this example, the pseudo random procedure produces, by its very definition, samples m1,m2,... the a priori probability density ρ(m). These samples will be the input to the next modifying Metropolis decision rule.
 
- - Problems
+ - What's your Problem?
    - We want to know most likely configuration of layers under the ground.
      <img src="https://user-images.githubusercontent.com/31917400/76699516-fc7e6400-66a5-11ea-91e7-30112c354974.jpg" />
 
@@ -355,8 +351,11 @@ For example in geophysics, let's say the Layer thickness follows `Exp(λ)`, and 
      - the mass density `q` across the **vertical fault** produce a **`gravity anomaly`** at the surface.
      - the 20 triangle, the location of data collection at 20 equispaced points to the right of the fault, the first point being located 2 km from the fault, and the last point being located 40 km from the fault 
      
-   - __parameters:__ depth `z`, mass density for each layer `q`, thinkness for each layer `l`
-     - vertical profile of mass density: **ρ(`z`)** = ρ(`q`)ρ(`l`)
+   - __parameters:__ depth `z`, mass density for each layer `k`, thinkness for each layer `l`
+     - vertical profile of mass density: **ρ(`z`)** = ρ(`k`)ρ(`l`)
+     - `Log(k) ~ N(μ,σ2)` and `l ~ Exp(λ)`
+       <img src="https://user-images.githubusercontent.com/31917400/76699618-2421fc00-66a7-11ea-91d6-d2da4a6dbe64.jpg" />
+
      - ∆**ρ(`z`)** is the horizontal density contrast across the fault at depth `z`
      - total thinkness **Σ`l`** = 100 km
    - __predictive distribution__ where **G** is the gravitational constant
