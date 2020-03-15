@@ -341,7 +341,7 @@ There are two ways of defining the a **priori probability distribution**:
 ### Part 04. IMC with Uniform Random Walk Prior example
 If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),ρ(z2),...} will have some probability distribution (representing our a priori knowledge) for the parameters {ρ(z1),ρ(z2),...} which we may not need to characterize explicitly. In this example, the pseudo random procedure produces, by its very definition, samples m1,m2,... the a priori probability density ρ(m). These samples will be the input to the next modifying Metropolis decision rule.
 
- - What's your Problem?
+ - ### What's your Problem?
    - We want to know most likely configuration of layers under the ground.
    - Noisy data: We don't believe the data collected coz..the measured data values are assumed to be contaminated. 
      <img src="https://user-images.githubusercontent.com/31917400/76699516-fc7e6400-66a5-11ea-91e7-30112c354974.jpg" />
@@ -351,8 +351,11 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
    - __Dataset:__ gravity observation data
      - ![formula](https://render.githubusercontent.com/render/math?math=\d_i)=d(![formula](https://render.githubusercontent.com/render/math?math=\x_i))=![formula](https://render.githubusercontent.com/render/math?math=g'(\x_i)) where `g(x)` is the vertical component of the gravity. (As a data & parameter relation, can it be a predictive function?)
      - the 20 triangle, the location of data collection at 20 equispaced points to the right of the fault, the first point being located 2 km from the fault, and the last point being located 40 km from the fault.
-     - ### the mass density `k` across the **vertical fault** produce a **`gravity anomaly`** at the surface.
- - Prior Knowledge?
+     - ### the mass density `k` across the **vertical fault** produce a **`gravity anomaly`**(data noise?) at the surface.
+     - __predictive function(Data & Parameter relation) where **G** is the gravitational constant...
+       <img src="https://user-images.githubusercontent.com/31917400/76699199-06529800-66a3-11ea-8f38-d3ff5af73530.jpg" />  
+       
+ - ### Prior Knowledge?
    - __parameters:__ depth `z`, log of mass density for each layer `k`, thinkness for each layer `l`
      - `l ~ Exp(λ)`, and `k ~ N(μ,σ2)`
      - total thinkness **Σ`l`** = 100 km
@@ -360,10 +363,8 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
 
      - vertical profile of mass density: **ρ(`z`)** = ρ(`k`)ρ(`l`)
      - ∆**ρ(`z`)** is the horizontal density contrast across the fault at depth `z`
-   - __predictive function(Data & Parameter relation)__ where **G** is the gravitational constant
-     <img src="https://user-images.githubusercontent.com/31917400/76699199-06529800-66a3-11ea-8f38-d3ff5af73530.jpg" />
 
- - Likelihood Knowledge?
+ - ### Likelihood Knowledge?
    - We know that the measured data values are assumed to be contaminated by statistically independent, random errors ![formula](https://render.githubusercontent.com/render/math?math=\epsilon_i) modeled by some gaussian mixture, then the likelihood function **L(`z`)**, measuring the degree of fit between synthetic and observed data is... 
      <img src="https://user-images.githubusercontent.com/31917400/76700085-a57b8d80-66ab-11ea-976a-0e16a1c71615.jpg" />
 
