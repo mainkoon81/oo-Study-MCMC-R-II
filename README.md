@@ -345,19 +345,19 @@ There are two ways of defining the a **priori probability distribution**:
  - What's your Problem?
    - We want to know most likely configuration of layers under the ground.
      <img src="https://user-images.githubusercontent.com/31917400/76699516-fc7e6400-66a5-11ea-91e7-30112c354974.jpg" />
- 
- - Prior Knowledge?
+   
    - __Dataset:__ gravity observation data
      - ![formula](https://render.githubusercontent.com/render/math?math=\d_i)=d(![formula](https://render.githubusercontent.com/render/math?math=\x_i))=![formula](https://render.githubusercontent.com/render/math?math=g'(\x_i)) where `g(x)` is the vertical component of the gravity.
      - the mass density `q` across the **vertical fault** produce a **`gravity anomaly`** at the surface.
      - the 20 triangle, the location of data collection at 20 equispaced points to the right of the fault, the first point being located 2 km from the fault, and the last point being located 40 km from the fault 
+ - Prior Knowledge?
    - __parameters:__ depth `z`, log of mass density for each layer `k`, thinkness for each layer `l`
-     - vertical profile of mass density: **ρ(`z`)** = ρ(`k`)ρ(`l`)
      - `l ~ Exp(λ)`, and `k ~ N(μ,σ2)`
+     - total thinkness **Σ`l`** = 100 km
        <img src="https://user-images.githubusercontent.com/31917400/76699738-5bdd7380-66a8-11ea-9c61-5dd8d0f11da9.jpg" />
 
+     - vertical profile of mass density: **ρ(`z`)** = ρ(`k`)ρ(`l`)
      - ∆**ρ(`z`)** is the horizontal density contrast across the fault at depth `z`
-     - total thinkness **Σ`l`** = 100 km
    - __predictive distribution__ where **G** is the gravitational constant
      <img src="https://user-images.githubusercontent.com/31917400/76699199-06529800-66a3-11ea-8f38-d3ff5af73530.jpg" />
 
