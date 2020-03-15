@@ -344,7 +344,7 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
  - ### What's your Problem?
    - We want to know most likely configuration of layers under the ground.
    - Noisy data: We don't believe the data collected coz..the measured data values are assumed to be contaminated. 
-   - ### We are not sure about data, so we are not sure about the parameter distribution of course...perhaps, we have to sample all possible parameter distributions..ranging from `ρ(z)`,`ρ(z)`,`ρ(z)`.. to `σ(z)`,`σ(z)`,`σ(z)`..ok?
+   - ### We are not sure about data, so we are not sure about the parameter distribution of course...perhaps, we have to sample all possible parameter distributions..ranging from `ρ(z)`,`ρ(z)`,`ρ(z)`.. to `σ(z)`,`σ(z)`,`σ(z)`..then try to gain some good sense of data at the end? 
    
  - ### Dataset? 
    <img src="https://user-images.githubusercontent.com/31917400/76699516-fc7e6400-66a5-11ea-91e7-30112c354974.jpg" />
