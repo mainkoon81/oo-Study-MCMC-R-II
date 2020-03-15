@@ -371,8 +371,16 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
      - ∆**ρ(`z`)** is the horizontal density contrast across the fault at depth `z`
    - So we don't have an accurate prior. Let's sample some. 
 
- - ### Sampling Prior?
- 
+ - ### Sampling Prior and Posterior?
+   - First, we define the metagraph in the model space that will guide our random walk! 
+     - We could pseudo-randomly generate layer thicknesses ![formula](https://render.githubusercontent.com/render/math?math=l_1,l_2,)... from bottom to top, according to the exponential distribution, until they add up to the 100 km of total thickness.
+     - We could pseudo-randomly generate, inside each layer, the corresponding value for the mass density ![formula](https://render.githubusercontent.com/render/math?math=k_1,k_2,)..., according to the empirical log-normal distribution. 
+     - > [Note] Unfortunately, sometimes this would produce a radical change in the synthetic data in each step of the random walk, and therefore it would be a very inefficient algorithm...then?  
+   - Next, we calculate the equilibrium distribution of each metagram, using Uniform Random Walk rule. They are our prior samples...?
+   - Taking the prior samples as inputs, we obtain the posterior samples from the metropolis rule...?  
+   
+ - ### After posterior samples?
+   - 
 
 
 
