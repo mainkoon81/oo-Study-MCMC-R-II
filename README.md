@@ -386,7 +386,8 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
    - We compute central or dispersion estimators....
      - While mean values and standard deviations are good measures for Gaussian functions, **median** and **mean deviations** are better adapted to Laplacian(double exponential) functions (Clearly, computing standard deviations or covariances may be meaningless, if the posterior probability density is far from Gaussian, which is always the case for highly nonlinear problems). 
    
-## Do we average out all posterior samples????    
+## Do we average out all posterior samples ????
+## Then we sample data from the predictive obtained from the posterior ????
 
 
 
