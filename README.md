@@ -348,7 +348,7 @@ For example in geophysics, let's say the Layer thickness follows `Exp(λ)`, and 
 
  - Problems
    - We want to know most likely configuration of layers under the ground.
-     <img src="https://user-images.githubusercontent.com/31917400/76699374-a8bf4b00-66a4-11ea-8ef9-f0a59a3384df.jpg" />
+     <img src="https://user-images.githubusercontent.com/31917400/76699516-fc7e6400-66a5-11ea-91e7-30112c354974.jpg" />
 
    - __Dataset:__ gravity observation data
      - ![formula](https://render.githubusercontent.com/render/math?math=\d_i)=d(![formula](https://render.githubusercontent.com/render/math?math=\x_i))=![formula](https://render.githubusercontent.com/render/math?math=g'(\x_i)) where `g(x)` is the vertical component of the gravity.
