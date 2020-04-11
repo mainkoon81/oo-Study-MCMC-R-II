@@ -305,17 +305,17 @@ It is a "flow" as it can be interpreted as the number of particles going to poin
 __[D] Two ways to process the metagraph__
 
 Let's define P(`m`) for each metagraph we have!
- - __Option 01. Naive Random Walks:__ P(![formula](https://render.githubusercontent.com/render/math?math=m_i))=![formula](https://render.githubusercontent.com/render/math?math=\p_i) ∝ ![formula](https://render.githubusercontent.com/render/math?math=\n_i)
+ - __Option 01. Naive Random Walks:__ P(![formula](https://render.githubusercontent.com/render/math?math=m_i))=![formula](https://render.githubusercontent.com/render/math?math=\p_i) ∝ ![formula](https://render.githubusercontent.com/render/math?math=\n_i) (`prefer larger neighbor_size`)
    - All points ![formula](https://render.githubusercontent.com/render/math?math=\m_i) have a probability proportional to their own number of neighbors(edges)...so it's an one and off case and this is the equilibrium distribution to obtain **`a single prior sample`**.  
    - ![formula](https://render.githubusercontent.com/render/math?math=\p_i=\n_i/\Sigma\n_j) where ![formula](https://render.githubusercontent.com/render/math?math=\n_i) is the number of neighbors of ![formula](https://render.githubusercontent.com/render/math?math=\m_i) (including the point ![formula](https://render.githubusercontent.com/render/math?math=\m_i) itself)...so the probability is obtained by the comparison of the neighbor sizes between you and your neighbors?    
     <img src="https://user-images.githubusercontent.com/31917400/76547840-c793c680-6485-11ea-8dab-dcfbb4da2c39.jpg" />
  
- - __Option 02. Uniform Random Walks:__ P(![formula](https://render.githubusercontent.com/render/math?math=m_i))=![formula](https://render.githubusercontent.com/render/math?math=\p_i) = C
+ - __Option 02. Uniform Random Walks:__ P(![formula](https://render.githubusercontent.com/render/math?math=m_i))=![formula](https://render.githubusercontent.com/render/math?math=\p_i) = C (`prefer smaller neighbor_size`)
    - All points ![formula](https://render.githubusercontent.com/render/math?math=\m_i) have the same probability, which implies too many output cases are possible. We might need to see the equilibrium distribution to obtain **`a single prior sample`**.  
    - The equilibrium distribution can be obtained by followings
      - if the "new" point has less neighbors than the "old" point (or the same number), then always accept the move to the "new" point!
      - if the "new" point has more neighbors than the "old" point, then make a random decision to move to the "new", or to stay at the "old", with the probability `alpha` = ![formula](https://render.githubusercontent.com/render/math?math=\n_j/\n_i)
-     - ...`old/new` is big? then accept the move. `old/new` is small? then reject the move. 
+     - In short...`old/new` is big? then accept the move. `old/new` is small? then reject the move. 
    
 ### Part 02. Prior Sampling
 There are two ways of defining the a **priori probability distribution**:
