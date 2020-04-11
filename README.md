@@ -319,9 +319,9 @@ Let's define P(`m`) for each metagraph we have!
    
 ### Part 02. Prior Sampling
 There are two ways of defining the a **priori probability distribution**:
-  - (1) By defining a (pseudo) **`random process`** (i.e., a set of pseudo **random rules**) whose output is models assumed to represent pseudo random realizations of `ρ(m)`: the **metagraph!**
+  - (1) By defining a (pseudo) **`random process`** (i.e., a set of pseudo **random rules**) whose output is models assumed to represent pseudo random realizations of `ρ(m)`: the **metagram!**
     - If, for some reason, we are not able to directly design a random walk that samples the prior, but we have an expression that gives the value of the prior probability ![formula](https://render.githubusercontent.com/render/math?math=\rho_i) for any model ![formula](https://render.githubusercontent.com/render/math?math=\m_i), we can, for instance, start a **`Uniform Random Walk`** that samples the **model space** with uniform probability.
-      - Using the Metropolis framework, replacing the likelihood values ![formula](https://render.githubusercontent.com/render/math?math=\L_i) by the prior probabilities ![formula](https://render.githubusercontent.com/render/math?math=\rho_i), we will produce a random walk that samples the prior (as clearly described above). 
+    - From the random walks, obtain the metagram samples which are the prior candidates (as clearly described above).  
     
   - (2) By explicitly giving a formula for the a priori probability density `ρ(m)`
     - We may choose the probability density: <img src="https://user-images.githubusercontent.com/31917400/76333067-02142c80-62e9-11ea-982b-75fde0f26607.jpg" />
