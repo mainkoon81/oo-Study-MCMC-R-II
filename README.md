@@ -315,7 +315,7 @@ Let's define P(`m`) for each metagraph we have!
    - The equilibrium distribution can be obtained by followings
      - if the "new" point has less neighbors than the "old" point (or the same number), then always accept the move to the "new" point!
      - if the "new" point has more neighbors than the "old" point, then make a random decision to move to the "new", or to stay at the "old", with the probability `alpha` = ![formula](https://render.githubusercontent.com/render/math?math=\n_j/\n_i)
-     - In short...`old/new` is big? then accept the move. `old/new` is small? then reject the move. 
+     - In short...**`old/new` is big? -> "accept" the move. `old/new` is small? -> "reject" the move**. 
    
 ### Part 02. Prior Sampling
 There are two ways of defining the a **priori probability distribution**:
