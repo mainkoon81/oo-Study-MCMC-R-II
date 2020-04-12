@@ -377,7 +377,7 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
      - We could pseudo-randomly generate, inside each layer, the corresponding value for the mass density ![formula](https://render.githubusercontent.com/render/math?math=k_1,k_2,)..., according to the empirical log-normal distribution. 
      - > [Note] Unfortunately, sometimes this would produce a radical change in the synthetic data in each step of the random walk, and therefore it would be a very inefficient algorithm...then?  
    - Next, we obtain the distribution from each metagram, using Uniform Random Walk rule. They are our priorssss.
-   - Taking the prior samples as inputs, sifting out, then we obtain the posterior samples from the variant of metropolis rule (such as L1/L2).   
+   - Taking the prior samples as inputs, sifting out, using the variant of metropolis rule (such as L1/L2), then we obtain the posterior samples.   
    
  - ### After posterior samples?
    <img src="https://user-images.githubusercontent.com/31917400/76703658-efc03700-66ca-11ea-938d-273251d99891.jpg" />
