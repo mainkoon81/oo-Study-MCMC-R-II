@@ -332,7 +332,7 @@ There are two ways of defining the a **priori probability distribution**:
 - __[Decision_1] Use Data & Model parameter relation (use your Likelihood)__ 
    - Assume that some **random rules** are given that define a random walk having **prior** {![formula](https://render.githubusercontent.com/render/math?math=\rho_i)} as its equilibrium probability(unif or not). How can this rules be modified so that the **new random walk** converge at **posterior** {![formula](https://render.githubusercontent.com/render/math?math=\sigma_i)}? 
    - First, if that "proposed transition" i ← j was always accepted, then the random walker would sample the **prior probability**: {![formula](https://render.githubusercontent.com/render/math?math=\rho_i)}! 
-   - Let us, however, instead of always accepting the proposed transition i ← j , sometimes thwart it by using the following rule to decide `if he is allowed to move to i` or `if he is forced to stay at j`: <img src="https://user-images.githubusercontent.com/31917400/76234932-4983b580-6222-11ea-80a1-e906d8122a8f.jpg" /> then the random walker will sample the **posterior probability** {![formula](https://render.githubusercontent.com/render/math?math=\sigma_i)}. This modification rule, reminiscent of the Metropolis algorithm, is not the only one possible.   
+   - Let us, however, instead of always accepting the proposed transition i ← j , sometimes thwart it by using the following rule to decide `if he is allowed to move to i` or `if he is forced to stay at j`: <img src="https://user-images.githubusercontent.com/31917400/76234932-4983b580-6222-11ea-80a1-e906d8122a8f.jpg" /> then the samples survived from this sifting routine become the **posterior probability** {![formula](https://render.githubusercontent.com/render/math?math=\sigma_i)}. <img src="https://user-images.githubusercontent.com/31917400/79072678-35781b80-7cda-11ea-832b-dfbd2fbed5f9.jpg" /> This modification rule, reminiscent of the Metropolis algorithm, is not the only one possible. See below.  
   
  - __[Decision_2] Use Data-Noise Distribution__ 
    - Let us consider the case of i.i.d Gaussian uncertainties. Then the likelihood function describing the experimental uncertainties degenerates into: <img src="https://user-images.githubusercontent.com/31917400/76240374-0843d380-622b-11ea-9c14-19aeb870163e.jpg" /> The acceptance probability for a perturbed model becomes in this case: <img src="https://user-images.githubusercontent.com/31917400/76240889-e7c84900-622b-11ea-96d5-b12bd6fc593d.jpg" />
@@ -376,8 +376,8 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
      - We could pseudo-randomly generate layer thicknesses ![formula](https://render.githubusercontent.com/render/math?math=l_1,l_2,)... from bottom to top, according to the exponential distribution, until they add up to the 100 km of total thickness.
      - We could pseudo-randomly generate, inside each layer, the corresponding value for the mass density ![formula](https://render.githubusercontent.com/render/math?math=k_1,k_2,)..., according to the empirical log-normal distribution. 
      - > [Note] Unfortunately, sometimes this would produce a radical change in the synthetic data in each step of the random walk, and therefore it would be a very inefficient algorithm...then?  
-   - Next, we calculate the equilibrium distribution of each metagram, using Uniform Random Walk rule. They are our prior samples...?
-   - Taking the prior samples as inputs, we obtain the posterior samples from the metropolis rule...?  
+   - Next, we obtain the distribution from each metagram, using Uniform Random Walk rule. They are our priorssss.
+   - Taking the prior samples as inputs, sifting out, then we obtain the posterior samples from the variant of metropolis rule (such as L1/L2).   
    
  - ### After posterior samples?
    <img src="https://user-images.githubusercontent.com/31917400/76703658-efc03700-66ca-11ea-938d-273251d99891.jpg" />
