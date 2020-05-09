@@ -219,12 +219,12 @@ nburn = 1000 # remember to discard early iterations
 post0$mu_keep = post0$mu[-c(1:1000)]
 summary(as.mcmc(post0$mu_keep))
 
-mean(post$mu_keep > 1.0) # posterior probability that mu  > 1.0
+mean(post0$mu_keep > 1.0) # posterior probability that mu  > 1.0
 ```
 
 MonteCarlo methods can be divided into two groups????
- - the first of which is devoted to sampling from a probability density
- - the second is to search for near optimal solutions to the problem ??????????????????too broad?? 
+ - 1) the first of which is devoted to sampling from a pdf
+ - 2) the second is to search for near optimal solutions to the problem ?????????????????? too broad?? 
  
 ------------------------------------------------------------------------------------------------------
 # Inverse Problem 
