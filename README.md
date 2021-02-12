@@ -227,6 +227,9 @@ MonteCarlo methods can be divided into two groups????
  - 2) the second is to search for near optimal solutions to the problem ?????????????????? too broad?? 
  
 ------------------------------------------------------------------------------------------------------
+> Direct Monte Carlo is viewed as a simulation of process such as estimating model parameters without resorting to writing a definite integral. Similarly, Inverse Monte Carlo is viewed as using simulation to solve inverse problem for which no integral equation is formally considered. IMC refers to any MC method applied to inverse problem.... 
+
+
 # Inverse Problem 
  - __Forward relation:__ `From reliable Data -> obtain posterior -> predictive` Let's say we know the position of particles(we know model parameters: `source`). This makes it easy to predict the collective behaviour of the particles(we can predict obv: `output`)
    - Mapping from the model space M into the **data space D**
