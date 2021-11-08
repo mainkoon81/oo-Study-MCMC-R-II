@@ -230,7 +230,7 @@ MonteCarlo methods can be divided into two groups????
 > Direct Monte Carlo is viewed as a simulation of process such as estimating model parameters without resorting to writing a definite integral. Similarly, Inverse Monte Carlo is viewed as using simulation to solve inverse problem for which no integral equation is formally considered. IMC refers to any MC method applied to inverse problem.... 
 
 
-# Inverse Problem 
+## Inverse Problem 
  - __Forward relation:__ `From reliable Data -> obtain posterior -> predictive` Let's say we know the position of particles(we know model parameters: `source`). This makes it easy to predict the collective behaviour of the particles(we can predict obv: `output`)
    - Mapping from the model space M into the **data space D**
      - ![formula](https://render.githubusercontent.com/render/math?math=d_\predict=g(m))
@@ -254,7 +254,7 @@ The general inverse problem is characterized by at least one of the following tw
 ?? This is the case for many highly **non-linear problems**, where the forward relation is insusceptible to mathematical analysis. When analysing an inverse problem, obtaining a maximum likelihood model is usually not sufficient, as we normally also wish to have `information on the resolution power`? of the data. Once a collection of models sampled according to the **posterior** is available, it is possible to estimate `not only posterior model parameter covariances, but also resolution measures`(The resolution analysis may also provide new insight into problems that are usually treated by means of analytical methods).
 > The resolution measures "non-uniqueness" and "uncertainty" of solution. No more point estimates! In the past, the analysis of nonlinearizable inverse problems were mainly focused on the construction of best fitting models, but today it is widely acknowledged that uncertainty and nonuniqueness analysis is very important for the assessment of scientific conclusions based on inverse calculations).  
 
-# Intro to Inverse MonteCarlo
+# {A} Inverse MonteCarlo Estimation
 MC ultimately concerns `θ` based on `Data_x`. However, IMC ultimately concerns `Adjusting Data_x` by controlling `θ`. As an adaptive procedure, by controlling model parameter `θ` sampling, IMC makes the corresponding data sampling follows some desired distribution ? we need. In the general case, an inspection of the marginal probability densities of interest maybe impractical, but it is possible to **`pseudo-randomly generate a large collection of models according to the posterior probability distribution`**. This can be accomplished by means of an Inverse Monte Carlo method, even in cases where **no explicit formula for the a priori distribution is available**! `Metropolis algorithm`(importance sampling) gives a framework that allows analysis of (possibly highly nonlinear) inverse problems with `complex a priori information`(crazy prior) and `data with an arbitrary noise distribution`(crazy likelihood).
 ### Get your prior from Random Process..{prior ρ(m)} → {posterior σ(m)}
 IMC first does Sampling `discrete models` in a **uniform random fashion** between pairs of upper and lower bounds, **which were chosen a priori**. Each generated model was tested for `its fit to the available data` and then accepted or rejected (based on data-model relation & data-noise distribution..which means **probabilities**(L1/L2) that depend on the models ability to reproduce observations). We can map out a region of acceptable models in parameter space. This was done by deterministically **sampling all models** in the vicinity(neighbouring parameters) of an acceptable model(candidate parameters), which had previously been determined by IMC. The whole process could then be repeated many times over(so keep generating different metagrams?). 
@@ -389,11 +389,10 @@ If we decide to discretize the model at constant **∆z** intervals, m ={ρ(z1),
    - We compute central or dispersion estimators....
      - While mean values and standard deviations are good measures for Gaussian functions, **median** and **mean deviations** are better adapted to Laplacian(double exponential) functions (Clearly, computing standard deviations or covariances may be meaningless, if the posterior probability density is far from Gaussian, which is always the case for highly nonlinear problems). 
    
-## Do we average out all posterior samples ????
-## Then we sample data from the predictive obtained from the posterior ????
+## Do we average out all posterior samples?  Then we sample data from a group of predictive distributions obtained from the posterior samples?
 
 
-
+# {B} Hamiltonian MonteCarlo Estimation
 
 
 
